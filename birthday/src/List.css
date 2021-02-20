@@ -1,0 +1,33 @@
+.personContainer {
+  position: relative;
+  display: flex;
+  margin: 10px 0 0 0;
+}
+
+/* .personContainer span {
+  border: 2px solid blue;
+} */
+
+.personContainer .info {
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+}
+
+.personName {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.personAge {
+  font-size: 16px;
+  color: rgb(15, 15, 15);
+}
+
+.personPic {
+  height: 75px;
+  width: 75px;
+  object-fit: cover;
+  border-radius: 50%;
+}
