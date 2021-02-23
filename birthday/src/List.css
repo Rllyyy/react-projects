@@ -30,4 +30,5 @@
   width: 75px;
   object-fit: cover;
   border-radius: 50%;
+  image-rendering: optimizeQuality;
 }
