@@ -10,3 +10,5 @@
 
 - fetching Data with loading option
 - conditional Rendering
+- spread operator (...)
+- mobile css

@@ -1,15 +1,16 @@
 .card {
-  margin: 20px 0 20px 0;
+  margin: 20px 40px 20px 40px;
   position: relative;
   background: white;
-  width: 640px;
-  height: 540px;
-  border-radius: 10px;
+  max-width: 640px;
+  min-height: 540px;
+  border-radius: 8px;
   box-shadow: 0px 0px 20px rgb(47, 47, 47);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-grow: 1;
 }
 
 img {
@@ -38,24 +39,33 @@ img {
 
 p {
   width: 80%;
+  padding-bottom: 65px;
 }
 
 .btn {
   position: absolute;
-  position: absolute;
   bottom: 25px;
-  /* right: 35%; */
   width: 30%;
   background-color: white;
   font-size: 16px;
   padding: 5px 20px 5px 20px;
-
-  /* color: rgb(209, 80, 10);
-  border: 2px solid rgb(209, 80, 10); */
   color: black;
   border: 2px solid black;
   font-weight: bolder;
 
   border-radius: 15px;
   cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(255, 186, 148);
+}
+
+@media screen and (max-width: 768px) {
+  p {
+    padding-bottom: 75px;
+  }
+  .btn {
+    width: 60%;
+  }
 }
