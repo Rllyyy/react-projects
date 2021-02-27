@@ -12,3 +12,6 @@
 - conditional Rendering
 - spread operator (...)
 - mobile css
+- conditional rendering (statement ? true : false)
+- array filter
+-

@@ -1,5 +1,5 @@
 .card {
-  margin: 20px 40px 20px 40px;
+  margin: 20px 20px 20px 20px;
   position: relative;
   background: white;
   max-width: 640px;
@@ -42,18 +42,28 @@ p {
   padding-bottom: 65px;
 }
 
+.MoreLess{
+   background: transparent;
+   outline: none;
+   border-color: transparent;
+   text-transform: capitalize;
+   font-size: 16px;
+   color:rgb(231, 87, 9);
+   cursor: pointer;
+}
+
 .btn {
   position: absolute;
   bottom: 25px;
   width: 30%;
   background-color: white;
   font-size: 16px;
-  padding: 5px 20px 5px 20px;
-  color: black;
-  border: 2px solid black;
   font-weight: bolder;
-
+  color: black;
+  padding: 5px 20px 5px 20px;
+  border: 2px solid black;
   border-radius: 15px;
+  outline: none;
   cursor: pointer;
 }
 
@@ -64,6 +74,9 @@ p {
 @media screen and (max-width: 768px) {
   p {
     padding-bottom: 75px;
+  }
+  .MoreLess{
+    font-size: 14px;
   }
   .btn {
     width: 60%;

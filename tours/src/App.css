@@ -79,10 +79,6 @@ section {
   align-items: center;
 }
 
-/*for mobile*/
-@media screen and (max-width: 768px) {
-}
-
 /*
 =============== 
 Tours
@@ -98,4 +94,17 @@ Tours
   width: 6rem;
   height: 0.25rem;
   background: rgb(231, 87, 9);
+}
+
+.button {
+  background-color: rgb(231, 87, 9);
+  font-size: 22px;
+  font-weight: bolder;
+  color: white;
+  margin-top: 10px;
+  padding: 3px 40px 3px 40px;
+  border: 2px solid rgb(231, 87, 9);
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
 }
