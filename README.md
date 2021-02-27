@@ -6,7 +6,7 @@
 - importing and mapping Data
 - css flex basics
 
-### [Tours](https://react-project-birthday.netlify.app)
+### [Tours](https://tours-project-react.netlify.app)
 
 - fetching Data with loading option
 - conditional Rendering
@@ -14,4 +14,3 @@
 - mobile css
 - conditional rendering (statement ? true : false)
 - array filter
--
