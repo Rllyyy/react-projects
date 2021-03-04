@@ -27,7 +27,7 @@ img {
   font-size: 16px;
   font-weight: 700;
   flex-direction: row;
-  align-items: flex-end;
+  align-items:flex-end;
   justify-content: space-between;
   color: black;
 }
@@ -35,6 +35,12 @@ img {
 .Country {
   font-size: 20px;
   color: rgb(231, 87, 9);
+  line-height: 1;
+}
+
+.Price{
+  line-height: 1;
+  margin-left: 10px;
 }
 
 p {

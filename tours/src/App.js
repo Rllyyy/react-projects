@@ -8,11 +8,13 @@ function App() {
   const [tours, setTours] = useState([]);
   const apiUrl = "https://course-api.com/react-tours-project";
 
+  //remove the item
   const removeTourFunction = (id) => {
     const newTours = tours.filter((tour) => tour.id !== id)
     setTours(newTours);
   }
 
+  //get the data from the api
   const fetchTours = async () => {
     try {
       const response = await fetch(apiUrl);

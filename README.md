@@ -8,6 +8,7 @@
 
 ### [Tours](https://tours-project-react.netlify.app)
 
+- useEffect
 - fetching Data with loading option
 - conditional Rendering
 - spread operator (...)
