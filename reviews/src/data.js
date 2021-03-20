@@ -6,7 +6,7 @@ const reviews = [
     image:
       'https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883334/person-1_rfzshl.jpg',
     text:
-      "Wow this is amazing! Amazing Customer Support and Program works great.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo non officiis voluptatem, veritatis, facilis fuga ex expedita accusantium laboriosam hic in facere reprehenderit iusto dolorum sint odit ut itaque ipsam?",
   },
   {
     id: 2,

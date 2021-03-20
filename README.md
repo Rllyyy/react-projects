@@ -8,6 +8,7 @@
 
 ### [Tours](https://tours-project-react.netlify.app)
 
+- useState
 - useEffect
 - fetching Data with loading option
 - conditional Rendering
@@ -16,6 +17,10 @@
 - conditional rendering (statement ? true : false)
 - array filter
 
-### [Reviews] ()
+### [Reviews] (https://reviews-project-react.netlify.app)
 
--
+- useState
+- React Icons
+- passing objects
+- Math.random
+- Math.floor
