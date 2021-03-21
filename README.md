@@ -17,7 +17,7 @@
 - conditional rendering (statement ? true : false)
 - array filter
 
-### [Reviews] (https://reviews-project-react.netlify.app)
+### [Reviews](https://reviews-project-react.netlify.app)
 
 - useState
 - React Icons
