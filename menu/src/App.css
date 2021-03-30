@@ -78,7 +78,8 @@ h4 {
 .menuGrid {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   max-width: 1200px;
 }
@@ -99,10 +100,6 @@ article{
   flex-direction: row;
   justify-content: center;
   max-width: 550px;
-  /* width: 450px;
-  min-width: 180px;
-  flex-grow: 1;
-  flex-shrink: 1; */
   margin: 20px;
   background: rgb(45, 52, 73);
   padding-right: 10px;
