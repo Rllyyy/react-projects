@@ -2,18 +2,18 @@ const menu = [
   {
     id: 1,
     title: 'buttermilk pancakes',
-    category: 'breakfast',
+    category: 'dessert',
     price: 15.99,
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSYnOyHI1xBzO8utCodau_2n_N-69EE6dZmZNif5gW3thJdcBf1OH1BeVG5QaKYvGvOPY&usqp=CAU",
-    desc: `I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed `,
+    desc: "Enjoy our lovely and fluffy self-made pancakes with strawberries and blueberries. The perfect dessert.",
   },
   {
     id: 2,
     title: 'diner double',
     category: 'lunch',
-    price: 13.99,
+    price: 19.99,
     img: "https://cdn.pixabay.com/photo/2020/03/21/11/17/burger-4953465__340.jpg",
-    desc: `vaporware iPhone mumblecore selvage raw denim slow-carb leggings gochujang helvetica man braid jianbing. Marfa thundercats `,
+    desc: `3 Burgers for 2 people. Juicy beef, fresh tomatoes and salad make this the perfect burger.`,
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const menu = [
     category: 'shakes',
     price: 6.99,
     img: 'https://img.ccnull.de/1015000/preview/1016180_86ca754787687fbe2ea1d48f681337bf.jpg',
-    desc: `ombucha chillwave fanny pack 3 wolf moon street art photo booth before they sold out organic viral.`,
+    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur quo quidem deleniti explicabo, est molestias." ,
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const menu = [
     category: 'breakfast',
     price: 20.99,
     img: 'https://upload.wikimedia.org/wikipedia/commons/7/70/Breakfast_in_Australia%3B_bacon_and_fried_eggs_on_toast.jpg',
-    desc: `Shabby chic keffiyeh neutra snackwave pork belly shoreditch. Prism austin mlkshk truffaut, `,
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, fuga voluptate tempora omnis dicta necessitatibus eaque obcaecati.",
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ const menu = [
     category: 'lunch',
     price: 22.99,
     img: 'https://cdn.pixabay.com/photo/2019/01/16/12/15/spaghetti-3935839_1280.jpg',
-    desc: `franzen vegan pabst bicycle rights kickstarter pinterest meditation farm-to-table 90's pop-up `,
+    desc: "Ipsum error ad consectetur laborum modi provident nobis ducimus ut culpa ea odit, quae repudiandae non id esse corrupti iste optio sit!",
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ const menu = [
     category: 'shakes',
     price: 18.99,
     img: 'https://upload.wikimedia.org/wikipedia/commons/2/23/Oreo_Milkshake.JPG',
-    desc: `Portland chicharrones ethical edison bulb, palo santo craft beer chia heirloom iPhone everyday`,
+    desc: "Atque rem similique enim ullam, quas perferendis nemo totam? Dignissimos ab at id labore amet ratione libero ipsam neque esse? Tempore, fugiat.",
   },
   {
     id: 7,
@@ -53,15 +53,15 @@ const menu = [
     category: 'breakfast',
     price: 8.99,
     img: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Bacon%2C_egg%2C_and_cheese_on_bread.jpg',
-    desc: `carry jianbing normcore freegan. Viral single-origin coffee live-edge, pork belly cloud bread iceland put a bird `,
+    desc: "Sapiente, quo velit ab temporibus dolorem eaque non dolor consequatur dolore corporis tempora, maxime ut molestiae ducimus excepturi laboriosam aliquam quas commodi.",
   },
   {
     id: 8,
     title: 'american classic',
     category: 'lunch',
-    price: 12.99,
+    price: 15.99,
     img: 'https://www.tft-mag.com/wp-content/uploads/2017/05/Business-Lunch-In-Hamburg-Restaurant-Image-13586-1100x650.jpg',
-    desc: `on it tumblr kickstarter thundercats migas everyday carry squid palo santo leggings. Food truck truffaut  `,
+    desc: "Vero nisi in a dicta ut officiis, deleniti quam quasi, eligendi molestiae autem voluptas esse accusamus, reiciendis magni. Praesentium quam deleniti dignissimos?",
   },
   {
     id: 9,
@@ -69,7 +69,15 @@ const menu = [
     category: 'shakes',
     price: 16.99,
     img: 'https://cdn.pixabay.com/photo/2016/05/26/19/49/strawberry-smoothie-1418212_1280.jpg',
-    desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
+    desc: "Asperiores quam doloribus molestiae ab aliquam quo repellendus a in dolore vitae. Minima dolore nisi dolor quidem, corporis modi quibusdam sed repellendus?",
+  },
+    {
+    id: 10,
+    title: 'pizza classico',
+    category: 'lunch',
+    price: 23.99,
+    img: 'https://live.staticflickr.com/5471/10522215603_2604706a1d_b.jpg',
+    desc: "Maiores repellendus quia quidem? Nulla adipisci aliquam quidem, eveniet sapiente, quos dignissimos ea accusamus velit eligendi quo quisquam! Atque illum tempora itaque!",
   },
 ];
 export default menu;
