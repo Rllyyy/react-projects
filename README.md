@@ -25,8 +25,7 @@
 - Math.random
 - Math.floor
 
-### [Menu]()
+### [Menu](https://menu-project-react.netlify.app)
 
 - useState
-- grid
 - netlify git integration
