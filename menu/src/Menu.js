@@ -10,7 +10,7 @@ const Menu = ({data}) => {
           <div className="menuItemInfo">
             <div className="menuItemNamePriceContainer">
               <h3 className="name">{title}</h3>
-              <span className="price">{price}</span>
+              <span className="price">{price}€</span>
             </div>
             <div className="lightUnderline"></div>
             <p className="menuItemText">{desc}</p>

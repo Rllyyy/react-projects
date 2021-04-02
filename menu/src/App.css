@@ -72,9 +72,47 @@ h4 {
 }
 
 .underline {
-  width: 20rem;
+  width: 70%;
   height: 2px;
   background: rgb(121, 216, 247);
+  margin-bottom: 10px;
+  margin-top: 4px;
+}
+
+.buttonContainer {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 4px;
+  margin-bottom: 15px;
+}
+
+button{
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 18px;
+  color:rgb(121, 216, 247);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 20px 5px 20px;
+  margin: 5px 10px 0 10px;
+  cursor:pointer;
+  text-transform: capitalize;
+  font-weight: 750;
+  transition: background .5s ease-in-out;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button:hover{
+  background: rgb(8, 150, 197);
+  color: white;
+}
+
+button:focus{
+  outline: none;
 }
 
 .menuGrid {
@@ -83,7 +121,7 @@ h4 {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 1200px;
+  max-width: 1140px;
 }
 
 img {
@@ -108,7 +146,7 @@ article{
 }
 
 .menuItemInfo {
-  margin-left: 20px;
+  margin-left: 12px;
 }
 
 .lightUnderline {
@@ -127,13 +165,10 @@ article{
   margin-top: 8px;
 }
 
-.price::after{
-  content: "€"
-}
-
 .price{
   font-size: 16px;
   line-height: 1;
+  margin-left: 6px;
 }
 
 .menuItemText {
@@ -161,11 +196,26 @@ article{
   h4 {
     font-size: 1rem;
   }
+  .underline{
+    width: 394px;
+  }
+
+  .buttonContainer {
+    flex-flow: row;
+  }
 
   article{
     height: 200px;
   }
 }
+
+/* Media Query for grid. Kinda rough but tbh this is only for learning*/
+@media screen and (min-width: 1154px){
+  .menuGrid {
+    justify-content:left;
+  }
+}  
+
 
 
 

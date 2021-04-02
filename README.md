@@ -29,3 +29,8 @@
 
 - useState
 - netlify git integration
+- passing functions
+- Set (for unique values of an array)
+- filter
+- dynamically setting categories
+- (TODO: Sort by price)

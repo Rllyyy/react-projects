@@ -1,10 +1,14 @@
 import React from 'react'
 
-const Categories = () => {
+const Categories = ({categories, filterItems}) => {
   return (
-    <>
-      <h3>menu Component</h3>
-    </>
+    <div className="buttonContainer">
+      {categories.map((category, index)=> {
+        return(
+          <button type="button" key={index} onClick={()=>filterItems(category)}>{category}</button>
+        );
+      })}
+    </div>
   )
 }
 
