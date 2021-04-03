@@ -100,15 +100,8 @@ button{
   cursor:pointer;
   text-transform: capitalize;
   font-weight: 750;
-  transition: background .5s ease-in-out;
-
   -webkit-appearance: none;
   -moz-appearance: none;
-}
-
-button:hover{
-  background: rgb(8, 150, 197);
-  color: white;
 }
 
 button:focus{
@@ -202,6 +195,15 @@ article{
 
   .buttonContainer {
     flex-flow: row;
+  }
+
+  button {
+    transition: background .5s ease-in-out;
+  }
+
+  button:hover {
+    background: rgb(8, 150, 197);
+    color: white;
   }
 
   article{

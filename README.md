@@ -33,4 +33,5 @@
 - Set (for unique values of an array)
 - filter
 - dynamically setting categories
+- custom scrollbar
 - (TODO: Sort by price)
