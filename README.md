@@ -41,3 +41,10 @@
 - useState
 - UseEffect (fetch)
 - Circuit Operator for className's
+
+### [Lorem-Ipsum](https://lorem-project-react.netlify.app)
+
+- useState
+- netlify git integration
+- circuit Operator
+- forms
