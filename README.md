@@ -35,3 +35,9 @@
 - dynamically setting categories
 - custom scrollbar
 - (TODO: Sort by price)
+
+### [Tabs](https://tabs-project-react.netlify.app)
+
+- useState
+- UseEffect (fetch)
+- Circuit Operator for className's
