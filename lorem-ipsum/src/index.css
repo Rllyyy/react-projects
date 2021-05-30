@@ -17,7 +17,7 @@ Variables
   --clr-primary-7: hsl(205, 90%, 76%);
   --clr-primary-8: hsl(205, 86%, 81%);
   --clr-primary-9: hsl(205, 90%, 88%);
-  --clr-primary-10: hsl(205, 100%, 96%);
+  --clr-primary-10: rgb(235, 247, 255);
   /* darkest grey - used for headings */
   --clr-grey-1: hsl(209, 61%, 16%);
   --clr-grey-2: hsl(211, 39%, 23%);
@@ -107,35 +107,6 @@ p {
   color: var(--clr-grey-5);
 }
 
-@media screen and (min-width: 800px) {
-  h1 {
-    font-size: 4rem;
-  }
-
-  h2 {
-    font-size: 2.5rem;
-  }
-
-  h3 {
-    font-size: 1.75rem;
-  }
-
-  h4 {
-    font-size: 1rem;
-  }
-
-  body {
-    font-size: 1rem;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    line-height: 1;
-  }
-}
-
 /*  global classes */
 
 .btn {
@@ -212,6 +183,7 @@ button {
 
 .lorem-form{
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
@@ -227,10 +199,53 @@ button {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   padding: 5px 20px;
+  width: 180px;
 }
+
 
 svg{
   height: 20px;
   width: 20px;
+}
+
+@media screen and (max-width: 576px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  body {
+    font-size: 1rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+
+  .lorem-form {
+    flex-direction: column;
+  }
+
+  .lorem-form input, 
+  .lorem-form select, 
+  .lorem-form button {
+    margin-top: 5px;
+  }
 }
