@@ -161,7 +161,7 @@ main {
 
 input {
   padding: 5px 0.5rem;
-  width: 4rem;
+  width: 4.5rem;
   border-radius: var(--radius);
   border: 2px solid var(--clr-primary-5);
   margin: 0 10px;
