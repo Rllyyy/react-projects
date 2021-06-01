@@ -98,15 +98,15 @@ function App() {
     //convert Array to outputString
     let outputString = outputArray.join('.');
 
-    setTextString(`${outputString}.`);
+    //Only add the dot to the output if the sentences is not 0
+    setTextString(outputString.length > 0 ? `${outputString}.` : '');
   };
 
   //handle Submit
   const handleSubmit = (e) => {
     e.preventDefault();
     let amount = parseInt(count);
-    //let startingDataParagraph = randomNumber();
-    let startingDataParagraph = 105;
+    let startingDataParagraph = randomNumber();
 
     //Set negative values to positives
     if (amount < 0) {
