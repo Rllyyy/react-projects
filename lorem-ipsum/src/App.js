@@ -41,18 +41,23 @@ function App() {
   };
 
   const getParagraphs = (amount, startingDataParagraph) => {
-    //set max length to array size (106)
-    if (amount > dataText.length) {
-      amount = data.length;
-      setCount(amount);
+    let outputArray = [];
+    let intNextParagraph = 0;
+
+    while (outputArray.length < amount) {
+      //check that the next element is not out of array bound
+      if (intNextParagraph + startingDataParagraph < dataText.length - 1) {
+        intNextParagraph++;
+      } else {
+        intNextParagraph = 0;
+        startingDataParagraph = 0;
+      }
+      outputArray.push(dataText[startingDataParagraph + intNextParagraph]);
     }
 
-    //restart Array if not long enough
-    if (amount + startingDataParagraph > dataText.length) {
-      dataText = dataText.concat(dataText);
-    }
+    setTextArray(outputArray);
 
-    setTextArray(dataText.slice(startingDataParagraph, amount + startingDataParagraph));
+    //setTextArray(dataText.slice(startingDataParagraph, amount + startingDataParagraph));
   };
 
   //Functions get called when user selects "Sentences" and clicks Generate
