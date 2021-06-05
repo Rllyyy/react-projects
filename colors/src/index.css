@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
+  /*Force scrollbar to fix centering issue when it's wasn't displayed and then displayed by another category*/
+  }
+
+  /*Custom Scrollbar*/
+  body::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  body::-webkit-scrollbar-track {
+    background: rgba(2, 34, 46, 0);
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: rgb(95, 95, 95);
+  }
+
+  /*Custom Scrollbar for Firefox*/
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(95, 95, 95) rgba(2, 34, 46, 0);
+    /*Thumb Track*/
+  }
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* #root {
+  background-color: green;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+} */
