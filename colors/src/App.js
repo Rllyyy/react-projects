@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
+import Values from 'values.js';
+import SingleColor from './SingleColor.js';
 import './App.css';
 
 function App() {
   const [color, setColor] = useState('');
+  const [submittedColor, setSubmittedColor] = useState('');
+  const [pickedColor, setPickedColor] = useState('');
   const [error, setError] = useState(false);
-  const [list, setLList] = useState([]);
+  const [list, setList] = useState([]);
+
+  //functions
+  //get RGB of single color
+  const setBackgroundOfPicked = (rgb) => {
+    if (rgb === undefined) {
+      return `rgb(0,0,155)`;
+    }
+    const rgbWithComma = rgb.join(',');
+    return `rgb(${rgbWithComma})`;
+  };
 
   //events
   const handleInputColorChange = (e) => {
@@ -13,6 +27,18 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    try {
+      let colors = new Values(color).all(10);
+      let colorsNoBase = colors.filter((color) => color.type !== 'base');
+      let colorBase = colors.filter((color) => color.type === 'base');
+      setPickedColor(setBackgroundOfPicked(colorBase[0].rgb));
+      setSubmittedColor(color);
+      setError(false);
+      setList(colorsNoBase);
+    } catch (error) {
+      setSubmittedColor(color);
+      setError(true);
+    }
   };
 
   return (
@@ -24,8 +50,23 @@ function App() {
           Submit
         </button>
       </form>
-      <section className='selected-color'></section>
-      <section className='colors'></section>
+      {/* Only show selected color if there is no error and only show if the user has clicked on "submit" */}
+      {error === true ? (
+        <section className='error-text'>
+          <p>{color === '' ? `Please provide a color` : `${submittedColor} is not a color`}</p>
+        </section>
+      ) : (
+        submittedColor && (
+          <section className='selected-color' style={{ backgroundColor: `${pickedColor}` }}>
+            <p>You picked: {submittedColor}</p>
+          </section>
+        )
+      )}
+      <section className='colors'>
+        {list.map((color, index) => {
+          return <SingleColor key={index} {...color} index={index} />;
+        })}
+      </section>
     </main>
   );
 }
