@@ -35,6 +35,7 @@ function App() {
       setSubmittedColor(color);
       setError(false);
       setList(colorsNoBase);
+      //console.log(colorsNoBase[10].hexString());
     } catch (error) {
       setSubmittedColor(color);
       setError(true);
@@ -53,7 +54,7 @@ function App() {
       {/* Only show selected color if there is no error and only show if the user has clicked on "submit" */}
       {error === true ? (
         <section className='error-text'>
-          <p>{color === '' ? `Please provide a color` : `${submittedColor} is not a color`}</p>
+          <p>Input is not valid</p>
         </section>
       ) : (
         submittedColor && (
@@ -62,11 +63,14 @@ function App() {
           </section>
         )
       )}
-      <section className='colors'>
-        {list.map((color, index) => {
-          return <SingleColor key={index} {...color} index={index} />;
-        })}
-      </section>
+      {/* hexString={color.hexString} */}
+      {!error && (
+        <section className='colors'>
+          {list.map((color, index) => {
+            return <SingleColor key={index} color={color} index={index} />;
+          })}
+        </section>
+      )}
     </main>
   );
 }

@@ -132,8 +132,7 @@ input {
   height: 40px;
   width: 88%;
   max-width: 800px;
-  margin: 10px 6% 10px 6%;
-  background-color: blue;
+  margin: 10px 6% 10px 6%;;
   border-radius: var(--custom-border-radius);
   display: flex;
   flex-direction: row;
@@ -141,17 +140,24 @@ input {
   justify-content: center;
 }
 
+.selected-color p {
+  background: grey;
+}
+
 .colors {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 88%;
-  max-width: 800px;
+  max-width: 1400px;
+  border-radius: var(--custom-border-radius);
+  overflow: hidden;
 }
 
-.colors article{
+.colors .single-color{
   min-width: 100%;
-  height: 35px;
+  height: 50px;
+  text-align: center;
 }
 
 
