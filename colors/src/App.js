@@ -9,6 +9,7 @@ function App() {
   const [pickedColor, setPickedColor] = useState('');
   const [error, setError] = useState(false);
   const [list, setList] = useState([]);
+  const [showClipboardModal, setShowClipboardModal] = useState(true);
 
   //functions
   //get RGB of single color
@@ -35,7 +36,6 @@ function App() {
       setSubmittedColor(color);
       setError(false);
       setList(colorsNoBase);
-      //console.log(colorsNoBase[10].hexString());
     } catch (error) {
       setSubmittedColor(color);
       setError(true);
@@ -46,7 +46,7 @@ function App() {
     <main>
       <h2 id='heading'>Color Generator</h2>
       <form onSubmit={handleSubmit}>
-        <input type='text' value={color} placeholder='#f15025' onChange={(e) => handleInputColorChange(e)} />
+        <input type='text' value={color} placeholder='#f15025, red or rgb(x,x,x)' onChange={(e) => handleInputColorChange(e)} />
         <button type='submit' className='btn'>
           Submit
         </button>
@@ -59,17 +59,21 @@ function App() {
       ) : (
         submittedColor && (
           <section className='selected-color' style={{ backgroundColor: `${pickedColor}` }}>
-            <p>You picked: {submittedColor}</p>
+            <p>Your Pick: {submittedColor}</p>
           </section>
         )
       )}
-      {/* hexString={color.hexString} */}
       {!error && (
         <section className='colors'>
           {list.map((color, index) => {
             return <SingleColor key={index} color={color} index={index} />;
           })}
         </section>
+      )}
+      {showClipboardModal && (
+        <div className='modal-clipboard'>
+          <p>Saved Color to Clipboard</p>
+        </div>
       )}
     </main>
   );

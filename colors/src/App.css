@@ -6,6 +6,8 @@ Variables
 
 :root {
   --custom-border-radius: 10px;
+  --custom-margin-mobile: 2%;
+  --custom-width-mobile: 96%;
 }
 
 
@@ -25,7 +27,7 @@ Global Styles
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: #282c34;
+  background-color: rgb(34, 37, 50);
   font-size: 0.875rem;
   color: whitesmoke;
 }
@@ -79,32 +81,47 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: red; */
   min-height: 100vh;
   width: 100%;
-  flex-grow: 100;
 }
 
 #heading{
   margin: 20px 30px 10px 30px;
 }
 
+form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 15px 0 15px;
+  height: 38px;
+}
+
 input {
   border-color: transparent;
-  padding: 0.4rem 1rem;
-  font-size: 1.2rem;
+  padding: 0.4rem 0 0.4rem 0.5rem;
+  font-size: 1.1rem;
   border-top-left-radius: var(--custom-border-radius);
   border-bottom-left-radius: var(--custom-border-radius);
+  height: 100%;
+  width: 88%;
+  max-width: 500px;
+  margin: 0 0 0 var(--custom-margin-mobile);
 }
 
 .btn {
   padding: 0.4rem 1rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   border-color: transparent;
   border-top-right-radius: var(--custom-border-radius);
   border-bottom-right-radius: var(--custom-border-radius);
   cursor: pointer;
-  background-color: rgb(117, 117, 117);
+  color: whitesmoke;
+  background-color: #47485d;
+  height: 100%;
+  margin: 0 var(--custom-margin-mobile) 0 0;
 }
 
 .btn:hover, .btn:active{
@@ -117,10 +134,10 @@ input {
 
 .error-text{
   height: 40px;
-  width: 88%;
+  width: var(--custom-width-mobile);
   max-width: 800px;
-  margin: 10px 6% 10px 6%;
-  background-color: red;
+  margin: 10px var(--custom-margin-mobile) 10px var(--custom-margin-mobile);
+  background-color: rgb(255, 66,121);
   border-radius: var(--custom-border-radius);
   display: flex;
   flex-direction: row;
@@ -130,9 +147,9 @@ input {
 
 .selected-color{
   height: 40px;
-  width: 88%;
+  width: var(--custom-width-mobile);
   max-width: 800px;
-  margin: 10px 6% 10px 6%;;
+  margin: 10px var(--custom-margin-mobile) 10px var(--custom-margin-mobile);
   border-radius: var(--custom-border-radius);
   display: flex;
   flex-direction: row;
@@ -141,25 +158,112 @@ input {
 }
 
 .selected-color p {
-  background: grey;
+  text-align: center;
+  height: 100%;
+  max-width: 100%;
+  padding: 0 20px;
+  background: rgb(34, 37, 50);
+  font-weight: 500;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .colors {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 88%;
+  width: var(--custom-width-mobile);
   max-width: 1400px;
   border-radius: var(--custom-border-radius);
   overflow: hidden;
+  margin-bottom: 20px;
 }
 
 .colors .single-color{
   min-width: 100%;
-  height: 50px;
-  text-align: center;
+  max-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+.colors .single-color .container-weight-color {
+  padding: 5px;
+  width: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.colors .single-color .container-weight-color .label-weight {
+  font-size: 14px;
+  
+}
+
+.colors .single-color .container-weight-color .label-color {
+  font-weight: 500;
+}
+
+.modal-clipboard{
+  width: 100%;
+  max-width: 400px;
+  height: 40px;
+  background-color: #47485d;
+  border-radius: var(--custom-border-radius);
+  text-align: center;
+  position: fixed;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+}
+
+.modal-clipboard p {
+  color: whitesmoke;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.color-light{
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.color-dark{
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.color-light-fadeout {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.color-dark-fadeout {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+/* 
+=============
+Media Queries 
+=============
+*/
+@media only screen and (max-width:480px){
+  input{
+    font-size: 1.2rem;
+  }
+
+  .btn{
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+  }
+
+  .modal-clipboard{
+    width: 85%;
+  }
+}
 
 
 
