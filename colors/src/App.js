@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Values from 'values.js';
 import SingleColor from './SingleColor.js';
 import './App.css';
@@ -9,7 +9,18 @@ function App() {
   const [pickedColor, setPickedColor] = useState('');
   const [error, setError] = useState(false);
   const [list, setList] = useState([]);
-  const [showClipboardModal, setShowClipboardModal] = useState(true);
+  const [showClipboardModal, setShowClipboardModal] = useState(false);
+
+  //useEffects
+  //Display "Copy to Clipboard for 5 seconds"
+  useEffect(() => {
+    let timeout = setTimeout(() => {
+      setShowClipboardModal(false);
+    }, 5000);
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [showClipboardModal]);
 
   //functions
   //get RGB of single color
@@ -66,7 +77,7 @@ function App() {
       {!error && (
         <section className='colors'>
           {list.map((color, index) => {
-            return <SingleColor key={index} color={color} index={index} />;
+            return <SingleColor key={index} color={color} index={index} setShowClipboardModal={setShowClipboardModal} />;
           })}
         </section>
       )}

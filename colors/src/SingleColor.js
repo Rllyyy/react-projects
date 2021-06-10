@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
+import { IoIosCopy } from 'react-icons/io';
 import rgbToHex from './utils.js';
 
-const SingleColor = ({ color, index }) => {
+const SingleColor = ({ color, index, setShowClipboardModal }) => {
   const { rgb, weight } = color;
   const [showClipboardMessage, setShowClipboardMessage] = useState(false);
   const rgbWithComma = rgb.join(',');
 
   //copy color to clipboard
-  const copyColorToClipboard = () => {};
+  const copyColorToClipboard = () => {
+    setShowClipboardModal(true);
+    navigator.clipboard.writeText(color.hexString());
+  };
 
   return (
     <article className='single-color' style={{ backgroundColor: `rgb(${rgbWithComma})`, color: 'black' }}>
@@ -17,7 +21,10 @@ const SingleColor = ({ color, index }) => {
           {weight}%{' '}
         </p>
         <p className={`label-color ${index > 9 ? 'color-light' : 'color-dark'}`}>{color.hexString()}</p>
-        <p>rgb({rgbWithComma})</p>
+        <div className='icon'>
+          <IoIosCopy className='icon-dark' onClick={() => copyColorToClipboard()} />
+        </div>
+        {/* <p>rgb({rgbWithComma})</p> */}
       </div>
     </article>
   );

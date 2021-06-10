@@ -199,12 +199,54 @@ input {
 }
 
 .colors .single-color .container-weight-color .label-weight {
-  font-size: 14px;
+  font-size: 15px;
+  line-height: 1;
   
 }
 
 .colors .single-color .container-weight-color .label-color {
+  font-size: 18px;
   font-weight: 500;
+}
+
+.color-light {
+  color: rgba(255, 255, 255, 0.80);
+}
+
+.color-dark {
+  color: rgba(0, 0, 0, 0.80);
+}
+
+.color-light-fadeout {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.color-dark-fadeout {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.icon{
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  transform: translate(250%, 0%);
+  height: 35px;
+  width: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.icon-dark{
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+}
+
+.icon:hover{
+  background: rgba(66, 66, 66, 0.4);
 }
 
 .modal-clipboard{
@@ -229,21 +271,7 @@ input {
   font-size: 1.1rem;
 }
 
-.color-light{
-  color: rgba(255, 255, 255, 0.8);
-}
 
-.color-dark{
-  color: rgba(0, 0, 0, 0.8);
-}
-
-.color-light-fadeout {
-  color: rgba(255, 255, 255, 0.65);
-}
-
-.color-dark-fadeout {
-  color: rgba(0, 0, 0, 0.65);
-}
 
 /* 
 =============
