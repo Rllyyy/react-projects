@@ -43,7 +43,10 @@
 - netlify git integration
 - circuit Operator
 - forms
+- Clipboard
 
 ### [Color Generator](https://colors-project-react.netlify.app)
 
 - forms
+- Clipboard
+- TODO: Option to display rgb instead of hex

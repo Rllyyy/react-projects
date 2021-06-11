@@ -8,7 +8,7 @@ function App() {
   const [submittedColor, setSubmittedColor] = useState('');
   const [pickedColor, setPickedColor] = useState('');
   const [error, setError] = useState(false);
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(new Values('rgb(0, 199, 221)').all(10));
   const [showClipboardModal, setShowClipboardModal] = useState(false);
 
   //useEffects
