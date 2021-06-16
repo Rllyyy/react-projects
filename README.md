@@ -8,6 +8,7 @@
 
 ### [Tours](https://tours-project-react.netlify.app)
 
+- useState
 - useEffect
 - fetching Data with loading option
 - conditional Rendering
@@ -18,6 +19,7 @@
 
 ### [Reviews](https://reviews-project-react.netlify.app)
 
+- useState
 - React Icons
 - passing objects
 - Math.random
@@ -25,6 +27,7 @@
 
 ### [Menu](https://menu-project-react.netlify.app)
 
+- useState
 - netlify git integration
 - passing functions
 - Set (for unique values of an array)
@@ -35,6 +38,7 @@
 
 ### [Tabs](https://tabs-project-react.netlify.app)
 
+- useState
 - UseEffect (fetch)
 - Circuit Operator for className's
 
@@ -48,5 +52,9 @@
 ### [Color Generator](https://colors-project-react.netlify.app)
 
 - forms
+- useEffect
+- useRef
+- useReducer
+- netlify git integration
 - Clipboard
 - TODO: Option to display rgb instead of hex
