@@ -58,3 +58,9 @@
 - netlify git integration
 - Clipboard
 - TODO: Option to display rgb instead of hex
+
+### [Grocery List]()
+
+- forms
+- Cookies
+- useReducer
