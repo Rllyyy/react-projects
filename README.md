@@ -59,8 +59,9 @@
 - Clipboard
 - TODO: Option to display rgb instead of hex
 
-### [Grocery List]()
+### [Grocery List](https://grocery-project-react.netlify.app)
 
 - forms
 - Cookies
 - useReducer
+- objects as states
