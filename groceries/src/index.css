@@ -33,25 +33,25 @@ body {
   overflow-y: scroll;
 }
 
-  /*Custom Scrollbar*/
-  body::-webkit-scrollbar {
-    width: 10px;
-  }
+/*Custom Scrollbar*/
+body::-webkit-scrollbar {
+  width: 10px;
+}
 
-  body::-webkit-scrollbar-track {
-    background: rgba(2, 34, 46, 0);
-  }
+body::-webkit-scrollbar-track {
+  background: rgba(2, 34, 46, 0);
+}
 
-  body::-webkit-scrollbar-thumb {
-    background-color: rgb(95, 95, 95);
-  }
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(95, 95, 95);
+}
 
-  /*Custom Scrollbar for Firefox*/
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: rgb(95, 95, 95) rgba(2, 34, 46, 0);
-    /*Thumb Track*/
-  }
+/*Custom Scrollbar for Firefox*/
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(95, 95, 95) rgba(2, 34, 46, 0);
+  /*Thumb Track*/
+}
 
 ul {
   list-style-type: none;
@@ -98,12 +98,32 @@ h4 {
   width: 100%;
 }
 
+.alert{
+  height: 50px;
+  font-size: 1.2rem;
+  background-color: rgb(0, 199, 221);
+  border-radius: var(--custom-border-radius);
+  width: 88%;
+  max-width: 700px;
+  font-weight: 600;
+  position: absolute;
+  top: 31px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+  z-index: 0;
+  overflow: hidden;
+}
+
 .App{
   margin-top: 60px;
-  padding: 20px;
+  padding: 10px 20px 25px 20px;
   border-radius: var(--custom-border-radius);
   background-color: #383b47;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
 
   width: 88%;
   max-width: 700px;
@@ -132,6 +152,19 @@ form{
   height: 100%;
   width: 70%;
   max-width: 500px;
+}
+
+.input-grocery:focus, .input-grocery:hover{
+  outline: none;
+  box-shadow: 0 0 0 1pt rgb(0, 199, 221);
+}
+
+.button-add:focus {
+  outline: none;
+}
+.button-add:active, .button-add:hover{
+  outline: none;
+  box-shadow: 0 0 0 1pt rgb(0, 199, 221); 
 }
 
 .button-add {
@@ -165,7 +198,6 @@ form{
 .grocery-list {
   width: 100%;
   max-width: 300px;
-  background-color: rgb(20, 20, 20);
   font-size: 1.2rem;
 }
 
@@ -193,42 +225,48 @@ form{
   line-height: 1;
   min-height: 100%;
   margin: 0px 5px;
+  border-color: transparent;
+  cursor: pointer;
+  color: white;
+  background-color: transparent;
+  border: 0px;
 }
 
+.grocery-buttons svg {
+  height: 20px;
+  width: 20px;
+}
 
+.button-edit svg:hover{
+  color: rgb(0, 199, 221);
+}
+
+.button-delete svg:hover {
+  color: rgb(255, 66, 121);
+}
 
 .button-clear{
   font-size: 1rem;
-  margin: 15px 0 0 0;
-  padding: 4px 30px;
+  margin: 10px 0 0 0;
   border-color: transparent;
   border-radius: 5px;
   cursor: pointer;
-  width: 170px;
+  width: 70%;
+  max-width: 250px;
+  height: 28px;
   color: white;
   font-weight: 550;
   background-color: rgb(255, 66, 121);
-  /* background-color: transparent; */
-  /* color: rgb(255, 66, 121); */
-  height: 100%;
 }
 
-
-.alert{
-   width: 100%;
-  max-width: 400px;
-  height: 40px;
-  background-color: rgb(0, 199, 221);
-  border-radius: var(--custom-border-radius);
-  text-align: center;
-  position: fixed;
-  bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+.button-clear:focus {
+  outline: none;
 }
+.button-clear:active, .button-clear:hover{
+  outline: none;
+  box-shadow: 0 0 0 1pt rgb(255, 66, 121);; 
+}
+
 
 /* 
 =============
@@ -238,7 +276,6 @@ Media Queries
 @media only screen and (max-width:480px){
   .button-add{
     min-width: 100px;
-    /* padding: 0.2rem 0.8rem; */
   }
   
 }
