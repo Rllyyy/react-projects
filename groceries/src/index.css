@@ -264,9 +264,73 @@ form{
 }
 .button-clear:active, .button-clear:hover{
   outline: none;
-  box-shadow: 0 0 0 1pt rgb(255, 66, 121);; 
+  box-shadow: 0 0 0 1pt rgb(255, 66, 121);
 }
 
+/* Cookies */
+.cookies{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cookie-form{
+  margin-top: 60px;
+  padding: 10px 20px 25px 20px;
+  height: 100%;
+  border-radius: var(--custom-border-radius);
+  background-color: #383b47;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+
+  width: 88%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.cookie-form p{
+  padding: 0 7px;
+  font-size: 1.1rem;
+}
+
+.button-container{
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  max-width: 700px;
+  height: 34px;
+}
+
+.button-container button{
+  font-size: 1.2rem;
+  height: 100%;
+  border-color: transparent;
+  width: 50%;
+  margin: 0 5px;
+  border-radius: var(--custom-border-radius);
+  cursor: pointer;
+  min-width: 105px;
+  color: white;
+  
+}
+
+.cookie-accept-button{
+  background-color: rgb(0, 199, 221);
+  font-size: 1.1rem;
+}
+
+.leave-site-button{
+  background-color: rgb(34, 37, 50);
+}
+
+.leave-site-button:hover{
+  background-color: rgb(255, 66, 121);
+}
 
 /* 
 =============
@@ -276,6 +340,19 @@ Media Queries
 @media only screen and (max-width:480px){
   .button-add{
     min-width: 100px;
+  }
+
+  .button-container{
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+  }
+
+  .button-container button{
+    /* margin: 5px 0; */
+    width: 90%;
+    height: 34px;
   }
   
 }

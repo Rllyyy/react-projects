@@ -1,23 +1,46 @@
 import React, { useState, useReducer, useRef, useEffect } from "react";
 import Alert from "./Alert";
 import List from "./List";
+import Cookies from "./Cookies";
+
+//Local Storage
+const getLocalStorageGroceries = () => {
+  let list = localStorage.getItem("groceriesListCookie");
+  if (list) {
+    return JSON.parse(list);
+  } else {
+    return [];
+  }
+};
+
+const getLocalStorageCookieAccepted = () => {
+  let acceptedCookie = localStorage.getItem("groceries-accepted-cookies");
+  if (acceptedCookie) {
+    return true;
+  }
+  return false;
+};
 
 function App() {
   //useState
-  const [list, setList] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [editID, setEditID] = useState(null);
   const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
+  const [userAcceptedCookies, setUserAcceptedCookies] = useState(getLocalStorageCookieAccepted());
+  const [list, setList] = useState(getLocalStorageGroceries());
 
-  //useRef
+  //UseRef
   const inputRef = useRef(null);
-  //inputRef.current.value
 
   //UseEffect
+  //focus input
   useEffect(() => {
-    inputRef.current.focus();
+    try {
+      inputRef.current.focus();
+    } catch {}
   }, []);
 
+  //show alert for 6500 ms
   useEffect(() => {
     const timeout = setTimeout(() => {
       setAlert({ show: false });
@@ -26,6 +49,19 @@ function App() {
       clearTimeout(timeout);
     };
   }, [list]);
+
+  //update local storage
+  useEffect(() => {
+    localStorage.setItem("groceriesListCookie", JSON.stringify(list));
+  }, [list]);
+
+  useEffect(() => {
+    if (userAcceptedCookies) {
+      console.log(getLocalStorageGroceries(userAcceptedCookies));
+    }
+    // setList();
+    // console.log("hello");
+  }, [userAcceptedCookies]);
 
   //functions
   const deleteItem = (id) => {
@@ -71,6 +107,9 @@ function App() {
     }
   };
 
+  if (!userAcceptedCookies) {
+    return <Cookies setUserAcceptedCookies={setUserAcceptedCookies} />;
+  }
   return (
     <>
       {alert.show && <Alert {...alert} setAlert={setAlert} />}

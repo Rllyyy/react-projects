@@ -11,7 +11,7 @@ const Alert = ({ msg, type }) => {
         backgroundColor = "rgb(30, 215, 96)";
         break;
       case "update":
-        backgroundColor = "rgb(0, 199, 221))";
+        backgroundColor = "rgb(0, 199, 221)";
         break;
       case "item_removed":
         backgroundColor = "rgb(255, 66, 121)";

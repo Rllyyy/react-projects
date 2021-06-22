@@ -62,6 +62,6 @@
 ### [Grocery List](https://grocery-project-react.netlify.app)
 
 - forms
-- Cookies
+- local Storage (Cookies)
 - useReducer
 - objects as states
