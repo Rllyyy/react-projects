@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Cookies = ({ setUserAcceptedCookies, setList, getLocalStorage }) => {
+const Cookies = ({ setUserAcceptedCookies }) => {
+  const [value, setValue] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
-    setUserAcceptedCookies(true);
-    localStorage.setItem("groceries-accepted-cookies", true);
-    // setList(getLocalStorage());
+    if (value) {
+      setUserAcceptedCookies(true);
+      localStorage.setItem("groceries-accepted-cookies", true);
+    }
   };
   return (
     <main className='cookies'>
@@ -16,7 +18,7 @@ const Cookies = ({ setUserAcceptedCookies, setList, getLocalStorage }) => {
           before. Cookies are vital for this website to work.
         </p>
         <div className='button-container'>
-          <button className='cookie-accept-button' type='submit'>
+          <button className='cookie-accept-button' type='submit' onClick={() => setValue(true)}>
             Accept Cookies
           </button>
           <button className='leave-site-button' type='submit'>
