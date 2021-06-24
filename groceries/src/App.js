@@ -1,33 +1,16 @@
-import React, { useState, useReducer, useRef, useEffect } from "react";
+import React, { useReducer, useRef, useEffect } from "react";
+
+//Components
 import Alert from "./Alert";
 import List from "./List";
 import Cookies from "./Cookies";
 
-//Local Storage
-const getLocalStorageGroceries = () => {
-  let list = localStorage.getItem("groceriesListCookie");
-  if (list) {
-    return JSON.parse(list);
-  } else {
-    return [];
-  }
-};
-
-const getLocalStorageCookieAccepted = () => {
-  let acceptedCookie = localStorage.getItem("groceries-accepted-cookies");
-  if (acceptedCookie) {
-    return true;
-  }
-  return false;
-};
+//Reducer
+import { reducer, init } from "./Reducer";
 
 function App() {
-  //useState
-  const [isEditing, setIsEditing] = useState(false);
-  const [editID, setEditID] = useState(null);
-  const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
-  const [userAcceptedCookies, setUserAcceptedCookies] = useState(getLocalStorageCookieAccepted());
-  const [list, setList] = useState(getLocalStorageGroceries());
+  //UseReducer
+  const [state, dispatch] = useReducer(reducer, init);
 
   //UseRef
   const inputRef = useRef(null);
@@ -43,87 +26,91 @@ function App() {
   //show alert for 6500 ms
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setAlert({ show: false });
+      dispatch({ type: "REMOVE_ALERT" });
     }, 6500);
     return () => {
       clearTimeout(timeout);
     };
-  }, [list]);
+  }, [state.list]);
 
   //update local storage
   useEffect(() => {
-    localStorage.setItem("groceriesListCookie", JSON.stringify(list));
-  }, [list]);
-
-  useEffect(() => {
-    if (userAcceptedCookies) {
-      console.log(getLocalStorageGroceries(userAcceptedCookies));
+    if (state.userAcceptedCookies) {
+      localStorage.setItem("groceriesListCookie", JSON.stringify(state.list));
     }
-    // setList();
-    // console.log("hello");
-  }, [userAcceptedCookies]);
+  }, [state.list, state.userAcceptedCookies]);
+
+  //update local storage
+  useEffect(() => {
+    console.log(state.userAcceptedCookies);
+  }, [state.userAcceptedCookies]);
 
   //functions
   const deleteItem = (id) => {
-    setList(list.filter((item) => item.id !== id));
-    setAlert({ show: true, msg: "Removed Item from List", type: "item_removed" });
+    dispatch({ type: "SET_LIST", payload: state.list.filter((item) => item.id !== id) });
+    dispatch({ type: "ALERT", payload: { show: true, msg: "Removed Item", type: "item_removed" } });
   };
 
   const clearList = () => {
-    setList([]);
-    setAlert({ show: true, msg: "Cleared List", type: "list_cleared" });
+    dispatch({ type: "SET_LIST", payload: [] });
+    dispatch({ type: "ALERT", payload: { show: true, msg: "Cleared List", type: "list_cleared" } });
   };
 
   const editItem = (id) => {
-    const specificItem = list.find((item) => item.id === id);
-    setIsEditing(true);
-    setEditID(id);
+    const specificItem = state.list.find((item) => item.id === id);
+    dispatch({ type: "EDIT_ITEM", payload: { id: id } });
     inputRef.current.value = specificItem.title;
+  };
+
+  const editItems = () => {
+    let editedList = state.list.map((item) => {
+      if (item.id === state.editID) {
+        return { ...item, title: inputRef.current.value };
+      }
+      return item;
+    });
+    dispatch({ type: "SET_LIST", payload: editedList });
+  };
+
+  const acceptedCookieClick = () => {
+    dispatch({ type: "ACCEPTED_COOKIES" });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!inputRef.current.value) {
-      setAlert({ show: true, msg: "Please enter a Value", type: "error" });
-    } else if (inputRef.current.value && isEditing) {
-      setList(
-        list.map((item) => {
-          if (item.id === editID) {
-            return { ...item, title: inputRef.current.value };
-          }
-          return item;
-        })
-      );
+      dispatch({ type: "ALERT", payload: { show: true, msg: "Please enter a Value", type: "error" } });
+    } else if (inputRef.current.value && state.isEditing) {
+      editItems();
       inputRef.current.value = "";
-      setEditID(null);
-      setIsEditing(false);
-      setAlert({ show: true, msg: "Value was Updated", type: "update" });
+      dispatch({ type: "RESET_EDIT_ITEM" });
+      dispatch({ type: "ALERT", payload: { show: true, msg: "Updated Item", type: "update" } });
     } else if (inputRef.current.value) {
       const newItem = { id: new Date().getTime().toString(), title: inputRef.current.value };
-      setList([...list, newItem]);
+      dispatch({ type: "ADD_ITEM", payload: newItem });
       inputRef.current.value = "";
-      setAlert({ show: true, msg: "Added Item to List", type: "success" });
+      dispatch({ type: "ALERT", payload: { show: true, msg: "Added Item", type: "success" } });
     }
   };
 
-  if (!userAcceptedCookies) {
-    return <Cookies setUserAcceptedCookies={setUserAcceptedCookies} />;
+  if (!state.userAcceptedCookies) {
+    return <Cookies acceptedCookieClick={acceptedCookieClick} />;
   }
   return (
     <>
-      {alert.show && <Alert {...alert} setAlert={setAlert} />}
+      {state.alert.show && <Alert {...state.alert} />}
       <main className='App'>
         <h2>Grocery List</h2>
         <form onSubmit={handleSubmit}>
           <input type='text' className='input-grocery' ref={inputRef} placeholder='apple' />
           <button className='button-add' type='submit'>
-            {isEditing ? "Update" : "Add Item"}
+            {state.isEditing ? "Update" : "Add Item"}
           </button>
         </form>
-        {list.length > 0 && (
+        {state.list.length > 0 && (
           <section className='groceries'>
-            <List items={list} deleteItem={deleteItem} editItem={editItem} />
+            <List items={state.list} deleteItem={deleteItem} editItem={editItem} />
             <button className='button-clear' onClick={() => clearList()}>
               Clear all Items
             </button>
