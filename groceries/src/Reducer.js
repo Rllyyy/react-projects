@@ -30,7 +30,6 @@ export const reducer = (state, action) => {
     case "REMOVE_ALERT":
       return { ...state, alert: { show: false } };
     case "ACCEPTED_COOKIES":
-      localStorage.setItem("groceries-accepted-cookies", true);
       return {
         ...state,
         userAcceptedCookies: true,

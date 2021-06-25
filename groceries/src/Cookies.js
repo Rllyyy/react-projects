@@ -5,6 +5,7 @@ const Cookies = ({ acceptedCookieClick }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    acceptedCookieClick();
   };
   return (
     <main className='cookies'>
@@ -15,10 +16,10 @@ const Cookies = ({ acceptedCookieClick }) => {
           before. Cookies are vital for this website to work.
         </p>
         <div className='button-container'>
-          <button className='cookie-accept-button' type='submit' onClick={() => acceptedCookieClick()}>
+          <button className='cookie-accept-button' type='submit'>
             Accept Cookies
           </button>
-          <button className='leave-site-button' type='submit' onClick={() => leaveSite()}>
+          <button className='leave-site-button' type='button' onClick={() => leaveSite()}>
             Leave Site
           </button>
         </div>

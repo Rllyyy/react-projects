@@ -40,9 +40,10 @@ function App() {
     }
   }, [state.list, state.userAcceptedCookies]);
 
-  //update local storage
   useEffect(() => {
-    console.log(state.userAcceptedCookies);
+    if (state.userAcceptedCookies) {
+      localStorage.setItem("groceries-accepted-cookies", true);
+    }
   }, [state.userAcceptedCookies]);
 
   //functions
