@@ -104,7 +104,7 @@ function App() {
       <main className='App'>
         <h2>Grocery List</h2>
         <form onSubmit={handleSubmit}>
-          <input type='text' className='input-grocery' ref={inputRef} placeholder='apple' />
+          <input type='text' className='input-grocery' ref={inputRef} placeholder={state.list.length < 1 ? "apple" : ""} />
           <button className='button-add' type='submit'>
             {state.isEditing ? "Update" : "Add Item"}
           </button>
