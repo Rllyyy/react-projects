@@ -66,6 +66,6 @@
 - useReducer
 - objects as states
 
-### [Shop]()
+### [Shop](https://shop-project-react.netlify.app)
 
 - React router
