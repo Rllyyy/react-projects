@@ -117,7 +117,6 @@ nav ul {
   background-color: white;
   border-bottom: 2px solid rgba(176, 116, 255, 0.7);
   /* box-shadow: 0 10px 20px rgba(176, 116, 255, 0.5); */
-  /* border: 20px solid red; */
   height: 100%;
   z-index: 100;
 }
@@ -139,11 +138,12 @@ nav ul {
  }
 
 .item{
+  position: relative;
   margin: 5px;
   min-width: 300px;
-  max-width: 500px;
+  /* max-width: 500px; */
 
-  height: 350px;
+  height: 355px;
   background-color: rgb(51, 50, 50);
   color: rgb(20, 20, 20);
   display: flex;
@@ -154,12 +154,54 @@ nav ul {
   flex-basis: 0;
 }
 
+.product-more-info{
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  padding: 5px 0;
+  z-index: 10;
+
+  cursor: pointer;
+
+  background-color: rgba(0,0,0);
+  opacity: 0;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 600;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+  transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+}
+
+.product-more-info svg {
+  width: 20px;
+  height: 20px;
+}
+
+.product-more-info path{
+  stroke-linecap: square;
+  stroke-linecap: square;
+  stroke-width: 3px;
+}
+
+.product-more-info p {
+  line-height: 0.9;
+}
+
 .info{
   background-color: rgb(176, 116, 255);
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-  padding: 5px;
-  border-radius: 10px;
-  width: 80%;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+  padding: 5px 0 7px 0;
+  width: 90%;
   margin-top: -35px;
   display: flex;
   flex-direction: column;
@@ -181,32 +223,34 @@ nav ul {
   margin-top: 5px;
   cursor: pointer;
   text-transform: uppercase;
-  font-weight: 600;
-  padding: 3px 20px;
+  font-weight: 700;
+  padding: 3px 40px;
   color: rgb(20, 20, 20);
 }
 
-/*Remove the god default 3d-effect*/
+/*Remove the god awful default 3d-effect*/
 .button-to-cart, .button-to-cart:focus, .button-to-cart:active{
-  border: 2px solid rgb(20, 20, 20);
-	background:none;
-	outline:none;
+  border: 2px solid rgba(20, 20, 20, 0.7);
+	background: none;
+	outline: none;
 }
 
 .product-image{
   display: flex;
-  justify-content:  center;
+  justify-content: center;
   width: 100%;
   height: 300px;
   overflow: hidden;
   background-color: white;
+  cursor: pointer;
 }
 
 img{
+  transform: scale(0.9);
   height: 300px;
   background-color: white;
   overflow: hidden;
-
+  
   transition: all .4s ease-in-out;
   -webkit-transition: all .4s ease-in-out;
   -moz-transition: all .4s ease-in-out;
@@ -215,7 +259,11 @@ img{
 }
 
 .item:hover img{
-  transform: scale(1.2);
+  transform: scale(1.4);
+}
+
+.item:hover .product-more-info{
+  opacity: 0.85;
 }
 
  .shopping-cart svg{
