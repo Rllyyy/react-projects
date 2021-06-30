@@ -69,3 +69,4 @@
 ### [Shop](https://shop-project-react.netlify.app)
 
 - React router
+- display grid
