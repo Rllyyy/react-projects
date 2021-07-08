@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Slider from "@material-ui/core/Slider";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { withStyles } from "@material-ui/core/styles";
 
+//Style for Custom slider
 //https://codesandbox.io/s/h0esn?file=/demo.js:4005-4014
 const PriceSlider = withStyles({
   root: {
@@ -28,6 +31,19 @@ const PriceSlider = withStyles({
     height: 3,
   },
 })(Slider);
+
+//Style for Custom Checkbox
+const ManufacturerCheckbox = withStyles({
+  root: {
+    color: "rgb(176, 116, 255)",
+    height: "35px",
+    width: "35px",
+    "&$checked": {
+      color: "rgb(176, 116, 255)",
+    },
+  },
+  checked: {},
+})(Checkbox);
 
 const Filter = ({ originalData, setOutputItems }) => {
   //const [manufacturers, setManufacturers] = useState([]);
@@ -113,8 +129,8 @@ const Filter = ({ originalData, setOutputItems }) => {
 
   //OnChange change the state of the checkbox
   const handleCheckBoxChange = (e) => {
-    //https://stackoverflow.com/questions/20377837/how-to-access-custom-attributes-from-event-object-in-react
-    const manufacturerIndex = e.target.attributes.getNamedItem("index").value;
+    //Get the index of the manufacturer. Value is the index
+    const manufacturerIndex = e.target.attributes.value.value;
     //Spread the array and only change the relevant isChecked
     setManufacturers([...manufacturers], (manufacturers[manufacturerIndex].isChecked = e.target.checked));
   };
@@ -128,8 +144,12 @@ const Filter = ({ originalData, setOutputItems }) => {
       <div className='manufacturers-wrapper'>
         {manufacturers.map((manufacturersObject, index) => {
           return (
-            <div className='manufacturer-checkbox' key={manufacturersObject.manufacturer}>
-              <input
+            <div className='manufacturer-checkbox' key={`${manufacturersObject.manufacturer}-${index}`}>
+              <FormControlLabel
+                control={<ManufacturerCheckbox onChange={(e) => handleCheckBoxChange(e)} value={index} checked={manufacturersObject.isChecked} />}
+                label={manufacturersObject.manufacturer}
+              />
+              {/* <input
                 type='checkbox'
                 index={index}
                 name={`checkbox-${manufacturersObject.manufacturer}`}
@@ -137,7 +157,7 @@ const Filter = ({ originalData, setOutputItems }) => {
                 checked={manufacturersObject.isChecked}
                 onChange={(e) => handleCheckBoxChange(e)}
               />
-              <label htmlFor={`checkbox-${manufacturersObject.manufacturer}`}>{manufacturersObject.manufacturer}</label>
+              <label htmlFor={`checkbox-${manufacturersObject.manufacturer}`}>{manufacturersObject.manufacturer}</label> */}
             </div>
           );
         })}
