@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Slider from "@material-ui/core/Slider";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -46,12 +46,9 @@ const ManufacturerCheckbox = withStyles({
 })(Checkbox);
 
 const Filter = ({ originalData, setOutputItems }) => {
-  //const [manufacturers, setManufacturers] = useState([]);
   const [value, setValue] = useState([0, 100]);
   const [maxPrice, setMaxPrice] = useState(0);
   const [manufacturers, setManufacturers] = useState([{}]);
-
-  //
 
   useEffect(() => {
     //get array,

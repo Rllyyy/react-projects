@@ -1,21 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { HiOutlinePlus } from "react-icons/hi";
-import { data } from "../data.js";
 import Filter from "../Components/Filter.js";
+import { DataContext } from "../DataContext.js";
 
 const ContentGrid = ({ type }) => {
+  //useStates
   const [originalData, setOriginalData] = useState([]);
   const [outputItems, setOutputItems] = useState([]);
 
+  //useRef
+  //const ref = useRef(initialValue)
+
+  //useContext
+  const importData = useContext(DataContext);
+
+  //useEffect
+  useEffect(() => {
+    let category = importData.filter((item) => item.category === type);
+    try {
+      setOutputItems(category[0].items);
+      setOriginalData(category[0].items);
+    } catch {}
+  }, [type]);
   //TODO useCallback
+  /*
   useEffect(() => {
     let category = data.filter((item) => item.category === type);
     try {
       setOutputItems(category[0].items);
       setOriginalData(category[0].items);
-    } catch { }
+    } catch {}
   }, [type]);
+  */
 
+  //functions
   const applyImgFix = () => {
     switch (type) {
       case "laptops":
@@ -31,7 +49,7 @@ const ContentGrid = ({ type }) => {
 
   return (
     <main>
-      <h2>{type}</h2>{" "}
+      <h2>{type}</h2>
       <div className='filter-content-wrapper'>
         <Filter originalData={originalData} setOutputItems={setOutputItems} />
         <section className='content'>

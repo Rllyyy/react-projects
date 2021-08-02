@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { RiShoppingCartFill } from "react-icons/ri";
-import { data } from "../data.js";
+//import { data } from "../data.js";
+import { DataContext } from "../DataContext.js";
 
 const Header = () => {
+  //useContext
+
+  const data = useContext(DataContext);
+
   return (
     <nav>
       <Link to='/' className='home-link-header'>

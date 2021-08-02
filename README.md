@@ -69,4 +69,5 @@
 ### [Shop](https://shop-project-react.netlify.app)
 
 - React router
+- useContext
 - display grid
