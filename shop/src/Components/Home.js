@@ -1,8 +1,11 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { data } from "../data.js";
+import { DataContext } from "../DataContext.js";
+// import { data } from "../data.js";
 
 function Home() {
+  //useContext
+  const data = useContext(DataContext);
   return (
     <main className='Home'>
       <h2>Home Content</h2>

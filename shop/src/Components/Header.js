@@ -19,14 +19,19 @@ const Header = () => {
           <h3>Home</h3>
         </Link>
         {data.map((item) => {
-          const { id, category } = item;
+          const { id, category, name } = item;
           return (
             <Link to={`/${category}`} className='phones-link-header' key={id}>
               <h3>{category}</h3>
             </Link>
+            /* return (
+            <Link to={`/${category}`} className='phones-link-header' key={id}>
+              <h3>{category}</h3>
+            </Link> */
           );
         })}
       </div>
+
       <Link to='/cart' className='cart-link-header'>
         <RiShoppingCartFill />
       </Link>

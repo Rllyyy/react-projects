@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { HiOutlinePlus } from "react-icons/hi";
 import Filter from "../Components/Filter.js";
 import { DataContext } from "../DataContext.js";
@@ -21,17 +21,8 @@ const ContentGrid = ({ type }) => {
       setOutputItems(category[0].items);
       setOriginalData(category[0].items);
     } catch {}
-  }, [type]);
+  }, [type, importData]);
   //TODO useCallback
-  /*
-  useEffect(() => {
-    let category = data.filter((item) => item.category === type);
-    try {
-      setOutputItems(category[0].items);
-      setOriginalData(category[0].items);
-    } catch {}
-  }, [type]);
-  */
 
   //functions
   const applyImgFix = () => {

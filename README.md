@@ -68,6 +68,7 @@
 
 ### [Shop](https://shop-project-react.netlify.app)
 
-- React router
+- React Router
+- Dynamic React Router
 - useContext
 - display grid
