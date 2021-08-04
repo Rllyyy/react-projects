@@ -18,7 +18,7 @@ import Cart from "./Components/Cart.js";
 import Header from "./Components/Header.js";
 import Footer from "./Components/Footer.js";
 import ProductCategoryRoutes from "./ProductCategoryRoutes.js";
-
+import { data } from "./data";
 //Import functions
 import ScrollToTop from "./Components/ScrollToTop.js";
 
@@ -31,7 +31,7 @@ ReactDOM.render(
         <Header />
         <Switch>
           <Route path='/' exact component={Home} />
-          <ProductCategoryRoutes />
+          {ProductCategoryRoutes(data)}
           <Route path='/cart' exact component={Cart} />
         </Switch>
       </DataProvider>

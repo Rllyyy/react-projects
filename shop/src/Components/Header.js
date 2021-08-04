@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { RiShoppingCartFill } from "react-icons/ri";
 //import { data } from "../data.js";
@@ -6,7 +6,6 @@ import { DataContext } from "../DataContext.js";
 
 const Header = () => {
   //useContext
-
   const data = useContext(DataContext);
 
   return (
@@ -19,15 +18,11 @@ const Header = () => {
           <h3>Home</h3>
         </Link>
         {data.map((item) => {
-          const { id, category, name } = item;
+          const { id, category } = item;
           return (
             <Link to={`/${category}`} className='phones-link-header' key={id}>
               <h3>{category}</h3>
             </Link>
-            /* return (
-            <Link to={`/${category}`} className='phones-link-header' key={id}>
-              <h3>{category}</h3>
-            </Link> */
           );
         })}
       </div>
