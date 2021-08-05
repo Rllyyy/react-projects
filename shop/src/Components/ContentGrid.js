@@ -57,8 +57,11 @@ const ContentGrid = ({ type }) => {
                   <img src={imageURL} alt={productName} className={applyImgFix()} />
                 </div>
                 <div className='info'>
-                  <p className='product-name'>{productName}</p>
-                  <p className='product-price'>{price}€</p>
+                  <div className='price-name-wrapper'>
+                    <p className='product-name'>{productName}</p>
+                    <p>|</p>
+                    <p className='product-price'>{price}€</p>
+                  </div>
                   <button className='button-to-cart'>Add to Cart</button>
                 </div>
               </div>

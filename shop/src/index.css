@@ -6,7 +6,9 @@ Variables
 
 :root {
   --custom-border-radius: 10px;
-  --custom-prime-color: rgb(176, 116, 255);
+  /* --custom-prime-color: rgb(176, 116, 255); */
+  --custom-prime-color: rgb(136, 80, 240);
+  --custom-prime-color-dark: rgb(71, 8, 189);
 }
 
 /*
@@ -77,11 +79,11 @@ h4 {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
   margin-bottom: 2px;
 }
@@ -106,7 +108,7 @@ Header
 nav {
   position: sticky;
   top: 0;
-  height: 50px;
+  height: 40px;
   z-index: 100;
   display: flex;
   flex-direction: row;
@@ -114,12 +116,11 @@ nav {
   align-items: center;
   background-color: white;
   border-bottom: 2px solid rgba(176, 116, 255, 0.7);
-  height: 100%;
 }
 
 nav a {
   color: black;
-  height: 35px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,19 +132,50 @@ nav a:hover {
   background-color: rgba(176, 116, 255, 0.7);
 }
 
+.main-links{
+  height: 100%;
+}
+
+nav h3{
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
 .cart-link-header {
-  margin-right: 10px;
+  /* margin-right: 12px; */
+  padding: 0 24px;
 }
 
 .cart-link-header svg {
-  height: 20px;
-  width: 20px;
+  height: 30px;
+  width: 30px;
   color: black;
 }
 
 .main-links {
   display: flex;
   flex-direction: row;
+}
+
+.cart-amount{
+  position: absolute;
+  top: 0px;
+  right: 12px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: rgba(136, 80, 240, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-amount > p {
+  line-height: 1;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 550;
 }
 
 /*
@@ -157,12 +189,20 @@ Filter
   width: 20%;
   max-width: 250px;
   min-height: 355px;
-  padding: 20px 0px;
   margin: 0 20px 0 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+}
+
+.filter-content{
+  padding: 15px 0px 10px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .slider {
@@ -175,10 +215,12 @@ Filter
 }
 
 .filter-button {
+  margin-bottom: 15px;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 550;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  margin-top: 15px;
+  margin-top: 5px;
 
   width: 80%;
   max-width: 300px;
@@ -188,10 +230,11 @@ Filter
   background-color: var(--custom-prime-color);
   outline: none;
   border: none;
+  transition: all 0.2s ease-in-out;
 }
 
 .filter-button:hover {
-  background-color: violet;
+  background-color: var(--custom-prime-color-dark);
 }
 
 /* 
@@ -280,9 +323,10 @@ main {
 }
 
 .info {
-  background-color: rgb(176, 116, 255);
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
-  padding: 5px 0 7px 0;
+  background-color: rgb(191, 154, 250);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);
+  padding: 7px 0 7px 0;
+  border-radius: var(--custom-border-radius);
   width: 90%;
   margin-top: -35px;
   display: flex;
@@ -292,31 +336,48 @@ main {
   z-index: 10;
 }
 
+.price-name-wrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.price-name-wrapper > p{
+  margin: 2px;
+}
+
 .product-name {
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 650;
+  font-size: 17px;
 }
 
 .product-price {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .button-to-cart {
-  margin-top: 5px;
+  margin-top: 7px;
   cursor: pointer;
   text-transform: uppercase;
-  font-weight: 700;
-  padding: 3px 40px;
-  color: rgb(20, 20, 20);
+  font-weight: 550;
+  font-size: 14px;
+  padding: 5px 45px;
+  color: whitesmoke;
+  background-color: var(--custom-prime-color);
+  transition: all 0.2s ease-in-out;
+  letter-spacing: .5px;
 }
 
-/*Remove the god awful default 3d-effect*/
+/*Remove the god awful default 3d-effect on buttons*/
 .button-to-cart,
 .button-to-cart:focus,
 .button-to-cart:active {
   border: 2px solid rgba(20, 20, 20, 0.7);
-  background: none;
   outline: none;
+}
+
+.button-to-cart:hover{
+  background-color: rgb(71, 8, 189);
 }
 
 .product-image {

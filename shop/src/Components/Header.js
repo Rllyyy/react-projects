@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { RiShoppingCartFill } from "react-icons/ri";
-//import { data } from "../data.js";
 import { DataContext } from "../DataContext.js";
 
 const Header = () => {
@@ -26,9 +25,11 @@ const Header = () => {
           );
         })}
       </div>
-
       <Link to='/cart' className='cart-link-header'>
         <RiShoppingCartFill />
+        <div className='cart-amount'>
+          <p>10</p>
+        </div>
       </Link>
     </nav>
   );

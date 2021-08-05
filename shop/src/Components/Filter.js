@@ -50,6 +50,7 @@ const Filter = ({ originalData, setOutputItems }) => {
   const [maxPrice, setMaxPrice] = useState(0);
   const [manufacturers, setManufacturers] = useState([{}]);
 
+  //!Split this useEffect
   useEffect(() => {
     //get array,
     //TODO map this
@@ -59,10 +60,11 @@ const Filter = ({ originalData, setOutputItems }) => {
     });
 
     //Create unique set
-    //TODO sort this
-    const uniqueManufacturers = Array.from(new Set(noUniqueManufacturers));
+    let uniqueManufacturers = Array.from(new Set(noUniqueManufacturers));
 
-    //
+    //Sort manufacturer array alphabetically
+    uniqueManufacturers.sort((a, b) => a.localeCompare(b));
+
     //TODO map this
     let items = [];
     uniqueManufacturers.forEach((item) => {
@@ -134,30 +136,23 @@ const Filter = ({ originalData, setOutputItems }) => {
 
   return (
     <form onSubmit={handleSubmit} className='filter'>
-      <h2>Filter Products</h2>
-      <h3>Price</h3>
-      <PriceSlider className='slider' value={value} onChange={handleChange} valueLabelDisplay='on' max={maxPrice} min={0} />
-      <h3>Manufacturers</h3>
-      <div className='manufacturers-wrapper'>
-        {manufacturers.map((manufacturersObject, index) => {
-          return (
-            <div className='manufacturer-checkbox' key={`${manufacturersObject.manufacturer}-${index}`}>
-              <FormControlLabel
-                control={<ManufacturerCheckbox onChange={(e) => handleCheckBoxChange(e)} value={index} checked={manufacturersObject.isChecked} />}
-                label={manufacturersObject.manufacturer}
-              />
-              {/* <input
-                type='checkbox'
-                index={index}
-                name={`checkbox-${manufacturersObject.manufacturer}`}
-                id={`checkbox-${manufacturersObject.manufacturer}`}
-                checked={manufacturersObject.isChecked}
-                onChange={(e) => handleCheckBoxChange(e)}
-              />
-              <label htmlFor={`checkbox-${manufacturersObject.manufacturer}`}>{manufacturersObject.manufacturer}</label> */}
-            </div>
-          );
-        })}
+      <div className='filter-content'>
+        <h2>Filter Products</h2>
+        <h3>Price</h3>
+        <PriceSlider className='slider' value={value} onChange={handleChange} valueLabelDisplay='on' max={maxPrice} min={0} />
+        <h3>Manufacturers</h3>
+        <div className='manufacturers-wrapper'>
+          {manufacturers.map((manufacturersObject, index) => {
+            return (
+              <div className='manufacturer-checkbox' key={`${manufacturersObject.manufacturer}-${index}`}>
+                <FormControlLabel
+                  control={<ManufacturerCheckbox onChange={(e) => handleCheckBoxChange(e)} value={index} checked={manufacturersObject.isChecked} />}
+                  label={manufacturersObject.manufacturer}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
       <button type='submit' className='filter-button'>
         Filter

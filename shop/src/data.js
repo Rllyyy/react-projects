@@ -57,7 +57,7 @@ const data = [
         id: "laptop-2",
         manufacturer: "Microsoft",
         releaseDate: "",
-        productName: "Microsoft Surface Laptop Go",
+        productName: "Surface Laptop Go",
         imageURL: "https://images-na.ssl-images-amazon.com/images/I/61Uz20r08cL._AC_SX425_.jpg",
         price: "419.99",
       },
