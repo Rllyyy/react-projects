@@ -10,7 +10,8 @@ import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 
 //Context
-import { DataProvider } from "./DataContext.js";
+import { DataProvider } from "./Context/DataContext";
+import { CartProvider } from "./Context/CartContext";
 
 //Components
 import Home from "./Components/Home.js";
@@ -28,12 +29,14 @@ ReactDOM.render(
     <Router>
       <ScrollToTop />
       <DataProvider>
-        <Header />
-        <Switch>
-          <Route path='/' exact component={Home} />
-          {ProductCategoryRoutes(data)}
-          <Route path='/cart' exact component={Cart} />
-        </Switch>
+        <CartProvider>
+          <Header />
+          <Switch>
+            <Route path='/' exact component={Home} />
+            {ProductCategoryRoutes(data)}
+            <Route path='/cart' exact component={Cart} />
+          </Switch>
+        </CartProvider>
       </DataProvider>
     </Router>
     <Footer />

@@ -1,11 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { RiShoppingCartFill } from "react-icons/ri";
-import { DataContext } from "../DataContext.js";
+import { DataContext } from "../Context/DataContext.js";
+import { CartContext } from "../Context/CartContext.js";
+
+const fromLocal = JSON.parse(localStorage.getItem("cart-items"));
 
 const Header = () => {
   //useContext
   const data = useContext(DataContext);
+  //const cartData = useContext(CartContext);
 
   return (
     <nav>
@@ -28,7 +32,7 @@ const Header = () => {
       <Link to='/cart' className='cart-link-header'>
         <RiShoppingCartFill />
         <div className='cart-amount'>
-          <p>10</p>
+          <p>0</p>
         </div>
       </Link>
     </nav>

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { DataContext } from "../DataContext.js";
+import { DataContext } from "../Context/DataContext.js";
 
 function Home() {
   //useContext

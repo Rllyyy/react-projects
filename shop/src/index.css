@@ -164,17 +164,17 @@ nav h3{
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background-color: rgba(136, 80, 240, 0.9);
+  background-color: rgba(136, 80, 240, 1);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .cart-amount > p {
-  line-height: 1;
+  line-height: 0.8px;
   color: white;
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 550;
 }
 

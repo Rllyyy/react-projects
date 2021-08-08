@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { HiOutlinePlus } from "react-icons/hi";
 import Filter from "../Components/Filter.js";
-import { DataContext } from "../DataContext.js";
+import { DataContext } from "../Context/DataContext.js";
+import { CartContext } from "../Context/CartContext.js";
 
 const ContentGrid = ({ type }) => {
   //useStates
@@ -13,6 +14,7 @@ const ContentGrid = ({ type }) => {
 
   //useContext
   const importData = useContext(DataContext);
+  const cartData = useContext(CartContext);
 
   //useEffect
   useEffect(() => {
@@ -36,6 +38,10 @@ const ContentGrid = ({ type }) => {
       default:
         return "no-img-fix";
     }
+  };
+
+  const addItemToCart = (item) => {
+    cartData.dispatch({ type: "ADD_ITEM_TO_CART", payload: { item } });
   };
 
   return (
@@ -62,7 +68,9 @@ const ContentGrid = ({ type }) => {
                     <p>|</p>
                     <p className='product-price'>{price}€</p>
                   </div>
-                  <button className='button-to-cart'>Add to Cart</button>
+                  <button className='button-to-cart' onClick={(event) => addItemToCart(event, item)}>
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             );
