@@ -7,7 +7,7 @@ function Home() {
   const data = useContext(DataContext);
   return (
     <main className='Home'>
-      <h2>Home Content</h2>
+      <h1 className='home-heading'>Categories</h1>
       <section className='home-content'>
         {data.map((item) => {
           const { id, category, backgroundURL, info } = item;

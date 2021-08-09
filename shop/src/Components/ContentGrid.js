@@ -68,7 +68,7 @@ const ContentGrid = ({ type }) => {
                     <p>|</p>
                     <p className='product-price'>{price}€</p>
                   </div>
-                  <button className='button-to-cart' onClick={(event) => addItemToCart(event, item)}>
+                  <button className='button-to-cart' onClick={() => addItemToCart(item)}>
                     Add to Cart
                   </button>
                 </div>
