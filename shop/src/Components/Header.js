@@ -25,7 +25,9 @@ const Header = () => {
   //Set the font in the header to purple if the user is currently viewing this category
   const isCurrentCategoryView = useCallback(
     (category) => {
-      if (currentCategory === category) return true;
+      if (currentCategory === category) {
+        return true;
+      }
       return false;
     },
     [currentCategory]
@@ -50,16 +52,18 @@ const Header = () => {
           const { id, category } = item;
           return (
             <Link to={`/${category}`} className='phones-link-header' key={id}>
-              <h3 style={{ color: isCurrentCategoryView(category) ? "rgb(71, 8, 189)" : "black" }}>{category}</h3>
+              <h3 className={`${isCurrentCategoryView(category) ? "categorySelected" : null}`}>{category}</h3>
             </Link>
           );
         })}
       </div>
       <Link to='/cart' className='cart-link-header'>
         <RiShoppingCartFill />
-        <div className='cart-amount'>
-          <p>{state.cartList.length}</p>
-        </div>
+        {state.cartList.length > 0 && (
+          <div className='cart-amount'>
+            <p>{state.cartList.length}</p>
+          </div>
+        )}
       </Link>
     </nav>
   );

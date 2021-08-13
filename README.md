@@ -71,4 +71,6 @@
 - React Router
 - Dynamic React Router
 - useContext
+- useReducer
+- useCallback
 - display grid

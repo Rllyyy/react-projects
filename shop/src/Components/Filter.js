@@ -8,7 +8,8 @@ import { withStyles } from "@material-ui/core/styles";
 //https://codesandbox.io/s/h0esn?file=/demo.js:4005-4014
 const PriceSlider = withStyles({
   root: {
-    color: "rgb(176, 116, 255);",
+    // color: "rgb(176, 116, 255);",
+    color: "rgb(136, 80, 240);",
     height: 3,
     padding: "13px 0",
   },
@@ -35,11 +36,11 @@ const PriceSlider = withStyles({
 //Style for Custom Checkbox
 const ManufacturerCheckbox = withStyles({
   root: {
-    color: "rgb(176, 116, 255)",
+    color: "rgb(136, 80, 240)",
     height: "35px",
     width: "35px",
     "&$checked": {
-      color: "rgb(176, 116, 255)",
+      color: "rgb(136, 80, 240)",
     },
   },
   checked: {},

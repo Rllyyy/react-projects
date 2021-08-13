@@ -8,37 +8,44 @@ const getInitialCart = () => {
   }
 };
 
-const itemToLocalStorage = (item) => {
-  //console.log("hello");
+const itemToLocalStorage = (item, cartList) => {
   //destructure item
-  const { id, productName, imageURL, price } = item;
+  const { id, manufacturer, productName, imageURL, price } = item;
 
-  //return;
-  //check if item already in cart
+  let newItem = true;
+  let newCartList = [];
 
-  //item not in cart
-  let localStorageBeforeAddedItem = localStorage.getItem("cart-items");
-  let storage = JSON.parse(localStorageBeforeAddedItem);
+  //Check if item not already in cart. If so, update the item quantity count else just return the item
+  newCartList = cartList.map((cartItem) => {
+    if (newCartList.id === id) {
+      //item already in array
+      const newItemQuantity = cartItem.quantity + 1;
+      newItem = false;
+      return { ...cartItem, quantity: newItemQuantity };
+    } else {
+      //item not already in array
+      return cartItem;
+    }
+  });
 
-  if (localStorageBeforeAddedItem) {
-    storage = JSON.parse(localStorageBeforeAddedItem);
-  } else {
-    storage = [];
+  //Add item to array if it's really new
+  if (newItem) {
+    newCartList.push({ id: id, manufacturer: manufacturer, product: productName, imageURL: imageURL, price: price, quantity: 1 });
   }
 
-  storage.push({ id: id, product: productName, imageURL: imageURL, price: price });
+  //Update local storage with new item
+  localStorage.setItem("cart-items", JSON.stringify(newCartList));
 
-  localStorage.setItem("cart-items", JSON.stringify(storage));
-  return storage;
+  //Return new Cart List to reducer
+  return newCartList;
 };
 
 export const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_ITEM_TO_CART":
-      //itemToLocalStorage(action.payload.item);
       return {
         ...state,
-        cartList: itemToLocalStorage(action.payload.item),
+        cartList: itemToLocalStorage(action.payload.item, state.cartList),
       };
     default:
       throw new Error("No matching action type");

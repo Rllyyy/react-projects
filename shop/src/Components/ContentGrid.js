@@ -9,9 +9,6 @@ const ContentGrid = ({ type }) => {
   const [originalData, setOriginalData] = useState([]);
   const [outputItems, setOutputItems] = useState([]);
 
-  //useRef
-  //const ref = useRef(initialValue)
-
   //useContext
   const importData = useContext(DataContext);
   const cartData = useContext(CartContext);
@@ -45,7 +42,7 @@ const ContentGrid = ({ type }) => {
   };
 
   return (
-    <main>
+    <main className='content-grid'>
       <h2>{type}</h2>
       <div className='filter-content-wrapper'>
         <Filter originalData={originalData} setOutputItems={setOutputItems} />

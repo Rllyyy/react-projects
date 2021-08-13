@@ -100,6 +100,10 @@ h4 {
   margin: 0;
 }
 
+main{
+  min-height: 90vh;
+}
+
 /* 
 =========
 Header
@@ -132,6 +136,10 @@ nav a:hover {
   background-color: rgba(176, 116, 255, 0.7);
 }
 
+nav a:hover h3{
+  color: black;
+}
+
 .main-links{
   height: 100%;
 }
@@ -141,8 +149,11 @@ nav h3{
   font-weight: 600;
 }
 
+.categorySelected{
+  color: var(--custom-prime-color-dark);
+}
+
 .cart-link-header {
-  /* margin-right: 12px; */
   padding: 0 24px;
 }
 
@@ -171,11 +182,11 @@ nav h3{
 }
 
 .cart-amount > p {
-  line-height: 0.8px;
+  line-height: normal;
   color: white;
   text-align: center;
   font-size: 18px;
-  font-weight: 550;
+  font-weight: 500;
 }
 
 /*
@@ -243,7 +254,7 @@ Content-Grid
 =========
 */
 
-main {
+.content-grid {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -430,6 +441,14 @@ main {
 Home
 =========
 */
+
+.home{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .home-content {
   display: flex;
   flex-direction: column;
@@ -463,11 +482,11 @@ Home
   width: 100%;
   z-index: 1;
 
-  transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -ms-transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
 }
 
 .category:hover img {
@@ -475,7 +494,7 @@ Home
 }
 
 .category-info {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.70);
   color: whitesmoke;
   position: relative;
   width: 100%;
@@ -486,24 +505,21 @@ Home
   align-items: center;
   justify-content:center;
 
-  transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -ms-transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
 }
 
 .category-info h2{
-  /* visibility: hidden; */
   margin-left: 50px;
   font-size: 1.75rem;
-  font-weight: 450;
-  /* text-transform: lowercase; */
-  
+  font-weight: 450; 
 }
 
 .category-info:hover {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.35);
 }
 
 .category-text {
