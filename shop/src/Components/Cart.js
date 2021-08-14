@@ -21,9 +21,7 @@ const Cart = () => {
             const { id, manufacturer, imageURL, price, product, quantity } = cartItem;
             return (
               <div className='cart-item' key={id}>
-                <div className='item-picture-wrapper'>
-                  <img className='item-picture' src={imageURL} alt={product} />
-                </div>
+                <img className='item-picture' src={imageURL} alt={product} />
                 <div className='item-description'>
                   <h3 className='item-name'>{product}</h3>
                   <p className='item-manufacturer'>{manufacturer}</p>
@@ -31,8 +29,7 @@ const Cart = () => {
                 <p className='item-price'>{price}€</p>
                 {/* //TODO: Make this input */}
                 <p className='item-quantity'>{quantity}</p>
-                {/* //TODO: price * quantity */}
-                <p className='item-subtotal'>{price}€</p>
+                <p className='item-subtotal'>{Math.round(price * quantity * 100) / 100}€</p>
               </div>
             );
           })}

@@ -13,11 +13,11 @@ const itemToLocalStorage = (item, cartList) => {
   const { id, manufacturer, productName, imageURL, price } = item;
 
   let newItem = true;
-  let newCartList = [];
+  let newCartList;
 
   //Check if item not already in cart. If so, update the item quantity count else just return the item
   newCartList = cartList.map((cartItem) => {
-    if (newCartList.id === id) {
+    if (cartItem.id === id) {
       //item already in array
       const newItemQuantity = cartItem.quantity + 1;
       newItem = false;

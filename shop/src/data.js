@@ -10,8 +10,8 @@ const data = [
         manufacturer: "Apple",
         releaseDate: "",
         productName: "I-Phone 12",
-        imageURL: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-family-select-2021?wid=470&hei=556&fmt=jpeg&qlt=95&.v=1617135051000",
-        price: "850.99",
+        imageURL: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78282202/fee_786_587_png",
+        price: 850.99,
       },
       {
         id: "phone-2",
@@ -19,7 +19,7 @@ const data = [
         releaseDate: "",
         productName: "Galaxy Note 9",
         imageURL: "https://media.nbb-cdn.de/images/products/640000/646513/samsung_note_9_hero_blau.jpg?size=2800",
-        price: "420.99",
+        price: 420.99,
       },
       {
         id: "phone-3",
@@ -27,7 +27,7 @@ const data = [
         releaseDate: "",
         productName: "Huawei P40 Pro",
         imageURL: "https://img01.huaweifile.com/eu/de/huawei/pms/product/6901443378944/428_428_E5E37F6587617167FABCF19AA4ADA6D535BC6B56C8EF2BBFmp.jpg",
-        price: "800.99",
+        price: 800.99,
       },
       {
         id: "phone-4",
@@ -35,7 +35,7 @@ const data = [
         releaseDate: "",
         productName: "Galaxy Z Fold2 5G",
         imageURL: "https://cdn.preis.de/p/6555485/1800x1800/85/1/Samsung-Galaxy-Z-Fold2-5G-1605514509431.jpg",
-        price: "999.99",
+        price: 999.99,
       },
     ],
   },
@@ -51,7 +51,7 @@ const data = [
         releaseDate: "",
         productName: "MacBook Pro",
         imageURL: "https://m.media-amazon.com/images/I/71an9eiBxpL._AC_SL1500_.jpg",
-        price: "1003.99",
+        price: 1003.99,
       },
       {
         id: "laptop-2",
@@ -59,7 +59,7 @@ const data = [
         releaseDate: "",
         productName: "Surface Laptop Go",
         imageURL: "https://images-na.ssl-images-amazon.com/images/I/61Uz20r08cL._AC_SX425_.jpg",
-        price: "419.99",
+        price: 419.99,
       },
       {
         id: "laptop-3",
@@ -67,7 +67,7 @@ const data = [
         releaseDate: "",
         productName: "Huawei P40 Pro",
         imageURL: "https://img01.huaweifile.com/eu/de/huawei/pms/product/6901443378944/428_428_E5E37F6587617167FABCF19AA4ADA6D535BC6B56C8EF2BBFmp.jpg",
-        price: "419.99",
+        price: 419.99,
       },
       {
         id: "laptop-4",
@@ -75,7 +75,7 @@ const data = [
         releaseDate: "",
         productName: "Galaxy Z Fold2 5G",
         imageURL: "https://cdn.preis.de/p/6555485/1800x1800/85/1/Samsung-Galaxy-Z-Fold2-5G-1605514509431.jpg",
-        price: "819.99",
+        price: 819.99,
       },
     ],
   },
@@ -92,7 +92,7 @@ const data = [
         productName: "Apple Watch",
         imageURL:
           "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MTPL2ref_VW_34FR+watch-44-alum-spacegray-cell-se_VW_34FR_WF_CO?wid=700&hei=700&trim=1,0&fmt=p-jpg&qlt=95&.v=1611165195000,1617299230000",
-        price: "3.99",
+        price: 305.99,
       },
       {
         id: "watch-2",
@@ -100,7 +100,7 @@ const data = [
         releaseDate: "",
         productName: "Galaxy Note 9",
         imageURL: "https://media.nbb-cdn.de/images/products/640000/646513/samsung_note_9_hero_blau.jpg?size=2800",
-        price: "419.99",
+        price: 419.99,
       },
       {
         id: "watch-3",
@@ -108,7 +108,7 @@ const data = [
         releaseDate: "",
         productName: "Huawei P40 Pro",
         imageURL: "https://img01.huaweifile.com/eu/de/huawei/pms/product/6901443378944/428_428_E5E37F6587617167FABCF19AA4ADA6D535BC6B56C8EF2BBFmp.jpg",
-        price: "419.99",
+        price: 419.99,
       },
       {
         id: "watch-4",
@@ -116,7 +116,7 @@ const data = [
         releaseDate: "",
         productName: "Galaxy Z Fold2 5G",
         imageURL: "https://cdn.preis.de/p/6555485/1800x1800/85/1/Samsung-Galaxy-Z-Fold2-5G-1605514509431.jpg",
-        price: "819.99",
+        price: 819.99,
       },
     ],
   },
@@ -132,7 +132,7 @@ const data = [
         releaseDate: "",
         productName: "iPad Pro 2020",
         imageURL: "https://media.nbb-cdn.de/images/products/650000/656618/ipad_pro_4th_generation_gps_space_gray_2.jpg?size=2800",
-        price: "3.99",
+        price: 499.99,
       },
       {
         id: "tablet-2",
@@ -140,7 +140,7 @@ const data = [
         releaseDate: "",
         productName: "iPad 2020 (8th Gen)",
         imageURL: "https://shop.gfdb.de/media/image/fe/ef/f9/200916121734100301900006H.jpg",
-        price: "419.99",
+        price: 419.99,
       },
       {
         id: "tablet-3",
@@ -148,7 +148,7 @@ const data = [
         releaseDate: "",
         productName: "iPad Mini (5th Gen)",
         imageURL: "https://www.notebookcheck.com/uploads/tx_nbc2/ipad-mini-teaser.jpg",
-        price: "419.99",
+        price: 419.99,
       },
       {
         id: "tablet-4",
@@ -157,7 +157,7 @@ const data = [
         productName: "iPad Air (4th Gen)",
         imageURL:
           "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/ipad-air-select-cell-silver-202009_FMT_WHH?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1598653765000",
-        price: "819.99",
+        price: 819.99,
       },
     ],
   },
@@ -173,7 +173,7 @@ const data = [
         releaseDate: "",
         productName: "Sony WH-1000XM4",
         imageURL: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_76529854/fee_786_587_png",
-        price: "319.99",
+        price: 319.99,
       },
       {
         id: "headphone-2",
@@ -181,7 +181,7 @@ const data = [
         releaseDate: "",
         productName: "ARGON SOUL 2",
         imageURL: "https://cdn.webshopapp.com/shops/87564/files/351934812/argon-soul-2-wireless-bluetooth-kopfhoerer.jpg",
-        price: "149.99",
+        price: 149.99,
       },
       {
         id: "headphone-3",
@@ -189,7 +189,7 @@ const data = [
         releaseDate: "",
         productName: "AirPods 2",
         imageURL: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MRXJ2",
-        price: "229.99",
+        price: 229.99,
       },
       {
         id: "headphone-4",
@@ -197,7 +197,7 @@ const data = [
         releaseDate: "",
         productName: "AirPods Pro",
         imageURL: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MWP22?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1591634795000",
-        price: "279.99",
+        price: 279.99,
       },
     ],
   },
