@@ -1,9 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect, useCallback } from "react";
 import "./Cart.css";
 import { CartContext } from "../Context/CartContext";
 
 const Cart = () => {
+  const [totalValue, setTotalValue] = useState(0);
   const cartData = useContext(CartContext);
+
+  //Calculate the total cart amount by adding up all items in the cart
+  //https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary/11832950#11832950
+  const calculateCartTotal = useCallback(() => {
+    let priceArray = cartData.state.cartList.map((cartElement) => {
+      return cartElement.price * cartElement.quantity;
+    });
+    let totalPrice = priceArray.reduce((a, b) => a + b, 0);
+    setTotalValue(Math.round((totalPrice + Number.EPSILON) * 100) / 100);
+  }, [cartData.state.cartList]);
+
+  //Update the total Price
+  useEffect(() => {
+    calculateCartTotal();
+  }, [calculateCartTotal, cartData.state.cartList]);
+
   return (
     <main className='cart'>
       <h2>Cart Content</h2>
@@ -27,12 +44,15 @@ const Cart = () => {
                   <p className='item-manufacturer'>{manufacturer}</p>
                 </div>
                 <p className='item-price'>{price}€</p>
-                {/* //TODO: Make this input */}
+                {/* //TODO: Make this input or dropdown */}
                 <p className='item-quantity'>{quantity}</p>
                 <p className='item-subtotal'>{Math.round(price * quantity * 100) / 100}€</p>
               </div>
             );
           })}
+        </div>
+        <div className='cart-total'>
+          <p>Total: {totalValue}€</p>
         </div>
       </section>
     </main>

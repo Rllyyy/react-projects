@@ -3,6 +3,8 @@
   flex-direction: column;
   align-items: center;
   background-color: white;
+  min-height: 50vh;
+  padding-bottom: 150px;
 }
 
 .cart-table{
@@ -24,7 +26,6 @@
   padding: 5px 0;
   border-top: 1px solid darkgrey;
   border-bottom: 1px solid darkgrey;
-  
 }
 
 .cart-table-heading{
@@ -81,4 +82,18 @@
   text-align: right;
   width: 100%;
   max-width: 150px;
+}
+
+/* Cart Total */
+
+.cart-total{
+  width:100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.cart-total > p {
+  font-size: 18px;
 }

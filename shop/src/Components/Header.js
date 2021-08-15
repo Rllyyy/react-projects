@@ -6,9 +6,24 @@ import { CartContext } from "../Context/CartContext.js";
 
 const Header = () => {
   const [currentCategory, setCurrentCategory] = useState("");
+  const [itemCount, setItemCount] = useState(0);
   //useContext
   const data = useContext(DataContext);
   const { state } = useContext(CartContext);
+
+  //Calculate total amount of items in cart including the quantity
+  const calc = useCallback(() => {
+    let cartAmount = 0;
+    state.cartList.forEach((item) => {
+      cartAmount = cartAmount + item.quantity;
+    });
+    setItemCount(cartAmount);
+  }, [state.cartList]);
+
+  //Update display of how many items are in cart (in the heading)
+  useEffect(() => {
+    calc();
+  }, [state.cartList, calc]);
 
   //detect urlChange
   const location = useLocation();
@@ -59,9 +74,9 @@ const Header = () => {
       </div>
       <Link to='/cart' className='cart-link-header'>
         <RiShoppingCartFill />
-        {state.cartList.length > 0 && (
+        {itemCount > 0 && (
           <div className='cart-amount'>
-            <p>{state.cartList.length}</p>
+            <p>{itemCount}</p>
           </div>
         )}
       </Link>
