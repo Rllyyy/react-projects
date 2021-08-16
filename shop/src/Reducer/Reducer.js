@@ -34,7 +34,7 @@ const itemToLocalStorage = (item, cartList) => {
   }
 
   //Update local storage with new item
-  localStorage.setItem("cart-items", JSON.stringify(newCartList));
+  localStorage.setItem("cart-items", JSON.stringify(newCartList), { sameSite: "strict", secure: true });
 
   //Return new Cart List to reducer
   return newCartList;

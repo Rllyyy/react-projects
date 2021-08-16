@@ -262,6 +262,21 @@ Content-Grid
   padding-bottom: 150px;
 }
 
+.heading-sort-wrapper{
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading-sort-wrapper h2 {
+  margin-left: 45%;
+}
+
+
+
 .filter-content-wrapper {
   width: 90%;
   display: flex;

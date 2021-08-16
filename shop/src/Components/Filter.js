@@ -46,7 +46,7 @@ const ManufacturerCheckbox = withStyles({
   checked: {},
 })(Checkbox);
 
-const Filter = ({ originalData, setOutputItems }) => {
+const Filter = ({ originalData, sortFunction }) => {
   const [value, setValue] = useState([0, 100]);
   const [maxPrice, setMaxPrice] = useState(0);
   const [manufacturers, setManufacturers] = useState([{}]);
@@ -100,10 +100,12 @@ const Filter = ({ originalData, setOutputItems }) => {
       //Update the array if none of the guards are activated
       updatedArray.push(item);
     });
-    setOutputItems(updatedArray);
+    //console.log(sortFunction);
+    sortFunction(updatedArray);
   };
 
   //get all prices and return highest one. Increment by 1 to include items with .99€
+  //TODO memo or callback this
   const getMaxPrice = () => {
     let itemsPrice = [];
     originalData.forEach((element) => {
