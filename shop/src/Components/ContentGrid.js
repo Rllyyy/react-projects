@@ -8,7 +8,7 @@ const ContentGrid = ({ type }) => {
   //useStates
   const [originalData, setOriginalData] = useState([]);
   const [outputItems, setOutputItems] = useState([]);
-  const [currentSortMethod, setCurrentSortMethod] = useState("default");
+  const [currentSortMethod, setCurrentSortMethod] = useState("");
 
   //useContext
   const importData = useContext(DataContext);
@@ -19,7 +19,6 @@ const ContentGrid = ({ type }) => {
     let category = importData.filter((item) => item.category === type);
     try {
       setOutputItems(category[0].items);
-      //sortFunction(category[0].items, originalData);
       setOriginalData(category[0].items);
     } catch {}
   }, [type, importData]);
@@ -54,10 +53,7 @@ const ContentGrid = ({ type }) => {
       let dataArray = [...importArray];
       switch (currentSortMethod) {
         case "default":
-          //only update the outputItems if the length of the given array is bigger than 0 to prevent empty output
-          if (dataArray.length > 0) {
-            setOutputItems(dataArray);
-          }
+          setOutputItems(dataArray.sort((a, b) => a.id.localeCompare(b.id)));
           break;
         case "price-low-to-high":
           setOutputItems(dataArray.sort((a, b) => parseFloat(a.price) - parseFloat(b.price)));
@@ -87,17 +83,15 @@ const ContentGrid = ({ type }) => {
   );
 
   useEffect(() => {
-    if (currentSortMethod === "default") {
-      sortFunction(originalData);
-    } else {
-      sortFunction(outputItems);
-    }
+    if (currentSortMethod === "") return;
+    sortFunction([...outputItems]);
   }, [currentSortMethod, sortFunction, originalData]);
 
-  /* useEffect(() => {
+  /*
+  useEffect(() => {
     console.log(outputItems);
-  }, [outputItems]); */
-
+  }, [outputItems]);
+*/
   return (
     <main className='content-grid'>
       <div className='heading-sort-wrapper'>
