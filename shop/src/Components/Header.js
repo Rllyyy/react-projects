@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { RiShoppingCartFill } from "react-icons/ri";
+// import { RiShoppingCartFill } from "react-icons/ri";
+import { IoCartOutline } from "react-icons/io5";
 import { DataContext } from "../Context/DataContext.js";
 import { CartContext } from "../Context/CartContext.js";
 
@@ -73,7 +74,7 @@ const Header = () => {
         })}
       </div>
       <Link to='/cart' className='cart-link-header'>
-        <RiShoppingCartFill />
+        <IoCartOutline />
         {itemCount > 0 && (
           <div className='cart-amount'>
             <p>{itemCount}</p>

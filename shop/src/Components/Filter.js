@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Slider from "@material-ui/core/Slider";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -51,6 +51,14 @@ const Filter = ({ originalData, sortFunction }) => {
   const [maxPrice, setMaxPrice] = useState(0);
   const [manufacturers, setManufacturers] = useState([{}]);
 
+  //get all prices and return highest one. Increment by 1 to include items with .99€
+  const getMaxPrice = useCallback(() => {
+    let itemsPrice = originalData.map((element) => {
+      return parseInt(element.price);
+    });
+    return Math.max(...itemsPrice) + 1;
+  }, [originalData]);
+
   //!Split this useEffect
   useEffect(() => {
     //get array,
@@ -79,10 +87,8 @@ const Filter = ({ originalData, sortFunction }) => {
   useEffect(() => {
     if (!isFinite(getMaxPrice())) return;
     setMaxPrice(getMaxPrice());
-    setValue([value[0], getMaxPrice()]);
-  }, [originalData]);
-
-  //
+    setValue((initial) => [initial[0], getMaxPrice()]);
+  }, [originalData, getMaxPrice]);
 
   //
   const newArray = (values) => {
@@ -102,17 +108,6 @@ const Filter = ({ originalData, sortFunction }) => {
     });
     //console.log(sortFunction);
     sortFunction(updatedArray);
-  };
-
-  //get all prices and return highest one. Increment by 1 to include items with .99€
-  //TODO memo or callback this
-  const getMaxPrice = () => {
-    let itemsPrice = [];
-    originalData.forEach((element) => {
-      let price = parseInt(element.price);
-      itemsPrice.push(price);
-    });
-    return Math.max(...itemsPrice) + 1;
   };
 
   //Event Handlers
