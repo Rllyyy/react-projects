@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect, useCallback } from "react";
 import "./Cart.css";
 import { CartContext } from "../Context/CartContext";
+import { IoTrashSharp } from "react-icons/io5";
 
 const Cart = () => {
   const [totalValue, setTotalValue] = useState(0);
@@ -20,6 +21,11 @@ const Cart = () => {
   useEffect(() => {
     calculateCartTotal();
   }, [calculateCartTotal, cartData.state.cartList]);
+
+  //Remove item from cart when clicking on the trash icon
+  const removeItemFromCart = (id) => {
+    cartData.dispatch({ type: "REMOVE_ITEM_FROM_CART", payload: id });
+  };
 
   return (
     <main className='cart'>
@@ -42,6 +48,7 @@ const Cart = () => {
                 <div className='item-description'>
                   <h3 className='item-name'>{product}</h3>
                   <p className='item-manufacturer'>{manufacturer}</p>
+                  <IoTrashSharp className='trash-icon' onClick={() => removeItemFromCart(id)} />
                 </div>
                 <p className='item-price'>{price}€</p>
                 {/* //TODO: Make this input or dropdown */}

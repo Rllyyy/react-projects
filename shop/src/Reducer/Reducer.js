@@ -8,7 +8,11 @@ const getInitialCart = () => {
   }
 };
 
-const itemToLocalStorage = (item, cartList) => {
+const updateLocalStorage = (updatedCart) => {
+  localStorage.setItem("cart-items", JSON.stringify(updatedCart), { sameSite: "strict", secure: true });
+};
+
+const addItemToCart = (item, cartList) => {
   //destructure item
   const { id, manufacturer, productName, imageURL, price } = item;
 
@@ -34,10 +38,17 @@ const itemToLocalStorage = (item, cartList) => {
   }
 
   //Update local storage with new item
-  localStorage.setItem("cart-items", JSON.stringify(newCartList), { sameSite: "strict", secure: true });
+  updateLocalStorage(newCartList);
 
   //Return new Cart List to reducer
   return newCartList;
+};
+
+const removeItemFromCart = (id, cartList) => {
+  //TODO update local storage
+  let updatedCartList = cartList.filter((item) => item.id !== id);
+  updateLocalStorage(updatedCartList);
+  return updatedCartList;
 };
 
 export const reducer = (state, action) => {
@@ -45,7 +56,12 @@ export const reducer = (state, action) => {
     case "ADD_ITEM_TO_CART":
       return {
         ...state,
-        cartList: itemToLocalStorage(action.payload.item, state.cartList),
+        cartList: addItemToCart(action.payload.item, state.cartList),
+      };
+    case "REMOVE_ITEM_FROM_CART":
+      return {
+        ...state,
+        cartList: removeItemFromCart(action.payload, state.cartList),
       };
     default:
       throw new Error("No matching action type");

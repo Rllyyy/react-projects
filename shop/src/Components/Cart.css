@@ -97,3 +97,7 @@
 .cart-total > p {
   font-size: 18px;
 }
+
+.trash-icon:hover{
+  cursor: pointer;
+}

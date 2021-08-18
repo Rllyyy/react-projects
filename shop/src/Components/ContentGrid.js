@@ -8,7 +8,7 @@ const ContentGrid = ({ type }) => {
   //useStates
   const [originalData, setOriginalData] = useState([]);
   const [outputItems, setOutputItems] = useState([]);
-  const [currentSortMethod, setCurrentSortMethod] = useState("");
+  const [currentSortMethod, setCurrentSortMethod] = useState("default");
 
   //useContext
   const importData = useContext(DataContext);
@@ -83,7 +83,8 @@ const ContentGrid = ({ type }) => {
   );
 
   useEffect(() => {
-    if (currentSortMethod === "") return;
+    if (outputItems.length === 0) return;
+    if (currentSortMethod.length === 0) return;
     sortFunction([...outputItems]);
   }, [currentSortMethod, sortFunction, originalData]);
 

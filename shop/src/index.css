@@ -480,7 +480,7 @@ Home
 .category {
   position: relative;
   background-repeat: no-repeat;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0);
   width: 90%;
   max-width: 1400px;
   height: 250px;
@@ -511,7 +511,7 @@ Home
 }
 
 .category-info {
-  background-color: rgba(0, 0, 0, 0.70);
+  background-color: rgba(0, 0, 0, 0.65);
   color: whitesmoke;
   position: relative;
   width: 100%;
@@ -536,7 +536,7 @@ Home
 }
 
 .category-info:hover {
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .category-text {
