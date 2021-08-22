@@ -96,7 +96,6 @@ const ContentGrid = ({ type }) => {
   return (
     <main className='content-grid'>
       <div className='heading-sort-wrapper'>
-        {/* <div className='empty'>hello</div> */}
         <h2>{type}</h2>
         <div className='label-sort-wrapper'>
           <label htmlFor='sort'>Sort by: </label>

@@ -27,7 +27,7 @@ const PriceSlider = withStyles({
     height: 3,
   },
   rail: {
-    color: "rgb(231,231,231);",
+    color: "rgb(179, 177, 177);",
     opacity: 1,
     height: 3,
   },
@@ -121,6 +121,12 @@ const Filter = ({ originalData, sortFunction }) => {
   //OnChange update the range of the price slider
   const handleChange = (e, newValue) => {
     e.preventDefault();
+
+    if (isNaN(newValue[0]) || isNaN(newValue[1])) {
+      setValue([0, 50]);
+      return;
+    }
+
     setValue(newValue);
   };
 
@@ -132,14 +138,31 @@ const Filter = ({ originalData, sortFunction }) => {
     setManufacturers([...manufacturers], (manufacturers[manufacturerIndex].isChecked = e.target.checked));
   };
 
+  const handleMinPriceChange = (e) => {
+    setValue([parseFloat(e.target.value), value[1]]);
+  };
+
+  const handleMaxPriceChange = (e) => {
+    let maxValue = parseFloat(e.target.value);
+    setValue([value[0], maxValue]);
+  };
+
   return (
     <form onSubmit={handleSubmit} className='filter'>
       <div className='filter-content'>
         <h2>Filter Products</h2>
-        <h3>Price</h3>
-        <PriceSlider className='slider' value={value} onChange={handleChange} valueLabelDisplay='on' max={maxPrice} min={0} />
-        <h3>Manufacturers</h3>
+        <div className='price'>
+          <h3>Price</h3>
+          <div className='priceSlider-container'>
+            <PriceSlider className='slider' value={value} onChange={handleChange} valueLabelDisplay='off' max={maxPrice} min={0} />
+          </div>
+          <div className='min-max-input-container'>
+            <input type='number' value={value[0].toString()} onChange={(e) => handleMinPriceChange(e)} max={maxPrice} min={0} required />
+            <input type='number' value={value[1].toString() || ""} onChange={(e) => handleMaxPriceChange(e)} max={maxPrice} min={0} required />
+          </div>
+        </div>
         <div className='manufacturers-wrapper'>
+          <h3>Manufacturers</h3>
           {manufacturers.map((manufacturersObject, index) => {
             return (
               <div className='manufacturer-checkbox' key={`${manufacturersObject.manufacturer}-${index}`}>
