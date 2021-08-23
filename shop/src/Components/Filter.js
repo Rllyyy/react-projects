@@ -11,7 +11,7 @@ const PriceSlider = withStyles({
     // color: "rgb(176, 116, 255);",
     color: "rgb(136, 80, 240);",
     height: 3,
-    padding: "13px 0",
+    padding: "0px 0",
   },
   valueLabel: {
     left: "calc(0 + 12px)",
@@ -25,6 +25,7 @@ const PriceSlider = withStyles({
   active: {},
   track: {
     height: 3,
+    color: "rgb(191, 154, 250);",
   },
   rail: {
     color: "rgb(179, 177, 177);",
@@ -149,20 +150,25 @@ const Filter = ({ originalData, sortFunction }) => {
 
   return (
     <form onSubmit={handleSubmit} className='filter'>
+      <h3>Filter Products</h3>
       <div className='filter-content'>
-        <h2>Filter Products</h2>
-        <div className='price'>
-          <h3>Price</h3>
+        <div className='price-wrapper'>
+          <p className='filter-category-heading'>Price</p>
           <div className='priceSlider-container'>
             <PriceSlider className='slider' value={value} onChange={handleChange} valueLabelDisplay='off' max={maxPrice} min={0} />
           </div>
           <div className='min-max-input-container'>
-            <input type='number' value={value[0].toString()} onChange={(e) => handleMinPriceChange(e)} max={maxPrice} min={0} required />
-            <input type='number' value={value[1].toString() || ""} onChange={(e) => handleMaxPriceChange(e)} max={maxPrice} min={0} required />
+            <div className='min-container'>
+              <input className='min-input' type='number' value={value[0].toString()} onChange={(e) => handleMinPriceChange(e)} max={maxPrice} min={0} required />
+            </div>
+            <div className='min-max-divide'>-</div>
+            <div className='max-container'>
+              <input className='max-input' type='number' value={value[1].toString() || ""} onChange={(e) => handleMaxPriceChange(e)} max={maxPrice} min={0} required />
+            </div>
           </div>
         </div>
         <div className='manufacturers-wrapper'>
-          <h3>Manufacturers</h3>
+          <p className='filter-category-heading'>Manufacturers</p>
           {manufacturers.map((manufacturersObject, index) => {
             return (
               <div className='manufacturer-checkbox' key={`${manufacturersObject.manufacturer}-${index}`}>

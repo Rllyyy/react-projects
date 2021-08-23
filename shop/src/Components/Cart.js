@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect, useCallback } from "react";
 import "./Cart.css";
 import { CartContext } from "../Context/CartContext";
-import { IoTrashSharp } from "react-icons/io5";
 
 const Cart = () => {
   const [totalValue, setTotalValue] = useState(0);

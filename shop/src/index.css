@@ -205,7 +205,7 @@ Filter
   margin: 0 50px 0 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: top;
   align-items: flex-start;
 }
 
@@ -218,13 +218,25 @@ Filter
   width: 100%;
 }
 
-.price{
+.filter-content > * {
+  width: 100%;
+  padding: 10px 0;
+  border-top: 1px solid rgb(173, 173, 173);
+}
+
+.price-wrapper{
   width: 100%;
 }
 
+.filter-category-heading{
+  font-weight: 600;
+  font-size: 18px;
+}
+
 .priceSlider-container {
-  padding: 0px 6px;
+  padding: 6px 6px; /*This value is also influenced by the padding defined in the PriceSlider (withStyles => root) */
   width: 100%;
+  margin: 0;
 }
 
 .min-max-input-container{
@@ -232,6 +244,38 @@ Filter
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+}
+
+.min-input,
+.max-input{
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid rgb(179, 177, 177);
+  outline: none;
+  transition: all .4s ease ;
+  width: 48px;
+  font-size: 16px;
+}
+
+input[type=number]::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.min-input:focus,
+.max-input:focus{
+  border-bottom: 2px solid var(--custom-prime-color);
+}
+
+.min-container::after,
+.max-container::after{
+  content: "€";
+}
+
+.min-max-divide{
+  margin: 0 5px;
+  font-size: 22px;
 }
 
 .manufacturer-checkbox{
@@ -244,15 +288,13 @@ Filter
 }
 
 .filter-button {
-  margin-bottom: 15px;
   font-size: 18px;
   font-weight: 550;
   letter-spacing: 0.5px;
   cursor: pointer;
-  margin-top: 5px;
+  margin-top: auto;
 
   width: 100%;
-  max-width: 300px;
   height: 32px;
   
   color: whitesmoke;
@@ -287,7 +329,7 @@ Content-Grid
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(51, 50, 50);;
+  background-color: rgb(51, 50, 50);
   color: white;
   margin: 15px 0;
   padding: 5px 10px;

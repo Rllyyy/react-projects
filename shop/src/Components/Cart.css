@@ -85,7 +85,6 @@
 }
 
 .item-subtotal{
-  /* justify-self: right; */
   text-align: right;
   width: 100%;
   max-width: 150px;
@@ -99,7 +98,8 @@
 }
 
 .item-remove:hover{
-  color: var(--custom-prime-color-dark)
+  color: var(--custom-prime-color-dark);
+  text-decoration: none;
 }
 
 .trash-icon:hover{
