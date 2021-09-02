@@ -8,10 +8,7 @@ const Cart = () => {
   const [showQuantity, setShowQuantity] = useState([]);
 
   const cartData = useContext(CartContext);
-  const quantityInputRef = useRef(null);
-
-  //const vars = ["a", "b"];
-  //const childRefs = React.useMemo(() => cartData.state.cartList.map(() => React.createRef()), [cartData.state.cartList.join(",")]);
+  const quantityInputRef = useRef([]);
 
   //Calculate the total cart amount by adding up all items in the cart
   //https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary/11832950#11832950
@@ -54,10 +51,10 @@ const Cart = () => {
     [showQuantity]
   );
 
-  //Focus Cart Item input
+  //Focus Cart Item input and close the dropdown
+  //https://codesandbox.io/s/agitated-monad-8m202?file=/src/App.js:179-183
   const focusQuantityInput = (id) => {
-    //! quantityRef must also be array
-    //childRefs[1].current.focus();
+    quantityInputRef.current[id].focus();
     updateShowQuantity(id, false);
   };
 
@@ -158,8 +155,13 @@ const Cart = () => {
                 </div>
                 <p className='item-price'>{price}€</p>
                 <div className='quantity-container'>
-                  {/* //TODO Make the ref dynamic  */}
-                  <input className='item-quantity' value={quantity} onChange={(e) => handleItemQuantityChange(id, e.target.value)} required />
+                  <input
+                    className='item-quantity'
+                    ref={(input) => (quantityInputRef.current[id] = input)}
+                    value={quantity}
+                    onChange={(e) => handleItemQuantityChange(id, e.target.value)}
+                    required
+                  />
                   {showQuantity.length > 0 && (
                     <button className='dropdown-arrow-wrapper'>
                       <RiArrowDropDownLine
