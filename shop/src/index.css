@@ -9,6 +9,7 @@ Variables
   /* --custom-prime-color: rgb(176, 116, 255); */
   --custom-prime-color: rgb(136, 80, 240);
   --custom-prime-color-dark: rgb(71, 8, 189);
+  --custom-prime-color-light: rgb(191, 154, 250);
 }
 
 /*
@@ -34,7 +35,6 @@ body {
   width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* overflow-y: scroll; */
   overflow: overlay;
 }
 
@@ -424,7 +424,7 @@ Content-Grid
 }
 
 .info {
-  background-color: rgb(191, 154, 250);
+  background-color: var(--custom-prime-color-light);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);
   padding: 7px 0 7px 0;
   border-radius: var(--custom-border-radius);
