@@ -16,7 +16,10 @@ const Header = () => {
   const calc = useCallback(() => {
     let cartAmount = 0;
     state.cartList.forEach((item) => {
-      cartAmount = cartAmount + item.quantity;
+      //Make sure that the quantity isn't a empty string to not brake js additions
+      if (item.quantity !== "") {
+        cartAmount += item.quantity;
+      }
     });
     setItemCount(cartAmount);
   }, [state.cartList]);

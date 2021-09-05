@@ -122,6 +122,7 @@ nav {
   align-items: center;
   background-color: white;
   border-bottom: 2px solid rgba(176, 116, 255, 0.7);
+  user-select: none;
 }
 
 nav a {
@@ -199,7 +200,6 @@ Filter
 */
 
 .filter {
-  /* background-color: white; */
   width: 250px;
   min-height: 355px;
   margin: 0 50px 0 0;
@@ -611,6 +611,7 @@ Home
 
 .category-info:hover {
   background-color: rgba(0, 0, 0, 0.3);
+  color: white;
 }
 
 .category-text {
