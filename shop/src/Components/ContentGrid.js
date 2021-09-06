@@ -3,29 +3,21 @@ import { HiOutlinePlus } from "react-icons/hi";
 import Filter from "../Components/Filter.js";
 import { DataContext } from "../Context/DataContext.js";
 import { CartContext } from "../Context/CartContext.js";
+import { RiArrowDropDownLine } from "react-icons/ri";
 
 const ContentGrid = ({ type }) => {
   //useStates
   const [originalData, setOriginalData] = useState([]);
   const [outputItems, setOutputItems] = useState([]);
-  const [currentSortMethod, setCurrentSortMethod] = useState("default");
+  const [currentSortMethod, setCurrentSortMethod] = useState("Default Sort");
+  const [showDropdown, setShowDropdown] = useState(false);
 
   //useContext
   const importData = useContext(DataContext);
   const cartData = useContext(CartContext);
 
-  //useEffect
-  useEffect(() => {
-    let category = importData.filter((item) => item.category === type);
-    try {
-      setOutputItems(category[0].items);
-      setOriginalData(category[0].items);
-    } catch {}
-  }, [type, importData]);
-  //TODO useCallback for above
-
   //functions
-  //TODO MEMO/Callback this
+  //TODO MEMO this
   const applyImgFix = () => {
     switch (type) {
       case "laptops":
@@ -39,39 +31,36 @@ const ContentGrid = ({ type }) => {
     }
   };
 
-  const addItemToCart = (item) => {
-    cartData.dispatch({ type: "ADD_ITEM_TO_CART", payload: { item } });
+  const handleDropdownClick = (e) => {
+    setCurrentSortMethod(e.target.innerText);
+    setShowDropdown(false);
   };
 
-  const handleChange = (e) => {
-    setCurrentSortMethod(e.target.value);
-  };
-
-  //function to sort output array by either price, alphabet or releaseDate
+  //function to sort output array by either price, alphabet or release Date
   const sortFunction = useCallback(
     (importArray) => {
       let dataArray = [...importArray];
       switch (currentSortMethod) {
-        case "default":
+        case "Default Sort":
           setOutputItems(dataArray.sort((a, b) => a.id.localeCompare(b.id)));
           break;
-        case "price-low-to-high":
+        case "Price: Low to High":
           setOutputItems(dataArray.sort((a, b) => parseFloat(a.price) - parseFloat(b.price)));
           break;
-        case "price-high-to-low":
+        case "Price: High to Low":
           setOutputItems(dataArray.sort((a, b) => parseFloat(b.price) - parseFloat(a.price)));
           break;
-        case "alphabet-a-to-z":
+        case "Alphabet: A to Z":
           setOutputItems(dataArray.sort((a, b) => a.productName.localeCompare(b.productName)));
           break;
-        case "alphabet-z-to-a":
+        case "Alphabet: Z to A":
           setOutputItems(dataArray.sort((a, b) => a.productName.localeCompare(b.productName)).reverse());
           break;
-        case "release-new-to-old":
+        case "Release: New to Old":
           //Dates are in ISO Format (YYYY-MM-DD)
           setOutputItems(dataArray.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate)));
           break;
-        case "release-old-to-new":
+        case "Release: Old to New":
           //Dates are in ISO Format (YYYY-MM-DD)
           setOutputItems(dataArray.sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate)));
           break;
@@ -82,32 +71,84 @@ const ContentGrid = ({ type }) => {
     [currentSortMethod]
   );
 
+  //Hide the dropdown quantity on the next click.
+  //Should this be outside of the return??
+  const hideDropDownOnNextClick = useCallback(
+    (e) => {
+      if (showDropdown === false) {
+        return;
+      }
+
+      //dropdown items and the arrow are excluded because they are already handled
+      if (
+        e.target.className !== "dropdown-list-item" &&
+        e.target.className !== "selected-current-sort" &&
+        e.target.className.baseVal !== "dropdown-arrow dropdown-arrow-extended" &&
+        e.target.className.baseVal !== ""
+      ) {
+        setShowDropdown(false);
+      }
+    },
+    [showDropdown]
+  );
+
+  //Dispatch
+  const addItemToCart = (item) => {
+    cartData.dispatch({ type: "ADD_ITEM_TO_CART", payload: { item } });
+  };
+
+  //useEffects
   useEffect(() => {
     if (outputItems.length === 0) return;
     if (currentSortMethod.length === 0) return;
     sortFunction([...outputItems]);
   }, [currentSortMethod, sortFunction, originalData]);
 
+  useEffect(() => {
+    let category = importData.filter((item) => item.category === type);
+    try {
+      setOutputItems(category[0].items);
+      setOriginalData(category[0].items);
+    } catch {}
+  }, [type, importData]);
+
+  //close Dropdown
+  useEffect(() => {
+    //add eventListener for next click
+    window.addEventListener("mousedown", hideDropDownOnNextClick);
+    return () => {
+      window.removeEventListener("mousedown", hideDropDownOnNextClick);
+    };
+  }, [showDropdown, hideDropDownOnNextClick]);
+
   /*
   useEffect(() => {
     console.log(outputItems);
   }, [outputItems]);
 */
+
   return (
     <main className='content-grid'>
       <div className='heading-sort-wrapper'>
         <h2>{type}</h2>
-        <div className='label-sort-wrapper'>
-          <label htmlFor='sort'>Sort by: </label>
-          <select id='sort' onChange={(e) => handleChange(e)}>
-            <option value='default'>Default</option>
-            <option value='price-low-to-high'>Price: Low to High</option>
-            <option value='price-high-to-low'>Price: High to Low</option>
-            <option value='alphabet-a-to-z'>Alphabet: A to Z</option>
-            <option value='alphabet-z-to-a'>Alphabet: Z to A</option>
-            <option value='release-new-to-old'>Release: New to Old</option>
-            <option value='release-old-to-new'>Release: Old to New</option>
-          </select>
+        <div className='dropdown-wrapper'>
+          <div className='selected-dropdown-wrapper'>
+            <p className='selected-current-sort' onClick={() => setShowDropdown(!showDropdown)}>
+              {currentSortMethod}
+            </p>
+            <button className='dropdown-arrow-button'>
+              <RiArrowDropDownLine className={`dropdown-arrow ${showDropdown && "dropdown-arrow-extended"}`} onClick={() => setShowDropdown(!showDropdown)} />
+            </button>
+          </div>
+          <ul className={`dropdown-list ${showDropdown && "li-extended"}`} onClick={handleDropdownClick}>
+            <li className='dropdown-list-item'>Default Sort</li>
+            <li className='dropdown-list-item'>Price: Low to High</li>
+            <li className='dropdown-list-item'>Price: High to Low</li>
+            <li className='dropdown-list-item'>Alphabet: A to Z</li>
+            <li className='dropdown-list-item'>Alphabet: Z to A</li>
+            <li className='dropdown-list-item'>Release: New to Old</li>
+            <li className='dropdown-list-item'>Release: Old to New</li>
+          </ul>
         </div>
       </div>
       <div className='filter-content-wrapper'>
